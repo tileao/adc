@@ -1,0 +1,206 @@
+{
+  "id": "SBRJ",
+  "code": "SBRJ",
+  "name": "Rio de Janeiro / Santos Dumont",
+  "city": "RJ - Brasil",
+  "adcTitle": "SBRJ ADC 27 NOV 25",
+  "engineId": "adc_sbrj_v1",
+  "stability": "draft",
+  "locked": true,
+  "schemaVersion": 4,
+  "defaultChartId": "ADC_MAIN",
+  "defaultRunwayId": "RWY_20R_02L",
+  "charts": [
+    {
+      "id": "ADC_MAIN",
+      "label": "ADC principal",
+      "asset": "sbrj_chart_p1.png",
+      "assetName": "sbrj_chart_p1.png",
+      "size": {
+        "width": 863,
+        "height": 1300
+      }
+    }
+  ],
+  "runways": [
+    {
+      "id": "RWY_20L_02R",
+      "label": "20L/02R",
+      "chartId": "ADC_MAIN",
+      "referenceEnd": "20L",
+      "ends": [
+        "02R",
+        "20L"
+      ],
+      "lengthM": 1323,
+      "widthM": 42,
+      "widthPx": 35,
+      "thresholdRef": {
+        "x": 364,
+        "y": 305
+      },
+      "thresholdOpp": {
+        "x": 399,
+        "y": 1084
+      },
+      "declaredDistances": {
+        "02R": {
+          "tora": 1323,
+          "toda": 1323,
+          "asda": 1323,
+          "lda": 1323
+        },
+        "20L": {
+          "tora": 1323,
+          "toda": 1323,
+          "asda": 1323,
+          "lda": 1323
+        }
+      },
+      "intersections": [
+        {
+          "id": "A",
+          "name": "TWY A",
+          "metersFromRef": 45,
+          "labelPoint": {
+            "x": 312,
+            "y": 334
+          }
+        },
+        {
+          "id": "B",
+          "name": "TWY B",
+          "metersFromRef": 403,
+          "labelPoint": {
+            "x": 363,
+            "y": 543
+          }
+        },
+        {
+          "id": "C",
+          "name": "TWY C",
+          "metersFromRef": 991,
+          "labelPoint": {
+            "x": 374,
+            "y": 889
+          }
+        },
+        {
+          "id": "D",
+          "name": "TWY D",
+          "metersFromRef": 1162,
+          "labelPoint": {
+            "x": 394,
+            "y": 989
+          }
+        }
+      ],
+      "endFeatures": {
+        "02R": {
+          "displacedThresholdM": 0.0,
+          "stopwayM": 0.0,
+          "clearwayM": 0.0
+        },
+        "20L": {
+          "displacedThresholdM": 0.0,
+          "stopwayM": 0.0,
+          "clearwayM": 0.0
+        }
+      }
+    },
+    {
+      "id": "RWY_20R_02L",
+      "label": "20R/02L",
+      "chartId": "ADC_MAIN",
+      "referenceEnd": "20R",
+      "ends": [
+        "02L",
+        "20R"
+      ],
+      "lengthM": 1260,
+      "widthM": 30,
+      "widthPx": 24,
+      "thresholdRef": {
+        "x": 410,
+        "y": 305
+      },
+      "thresholdOpp": {
+        "x": 450,
+        "y": 1090
+      },
+      "declaredDistances": {
+        "02L": {
+          "tora": 1260,
+          "toda": 1260,
+          "asda": 1260,
+          "lda": 1260
+        },
+        "20R": {
+          "tora": 1260,
+          "toda": 1260,
+          "asda": 1260,
+          "lda": 1260
+        }
+      },
+      "intersections": [
+        {
+          "id": "A",
+          "name": "TWY A",
+          "metersFromRef": 43,
+          "labelPoint": {
+            "x": 391,
+            "y": 333
+          }
+        },
+        {
+          "id": "H",
+          "name": "TWY H",
+          "metersFromRef": 379,
+          "labelPoint": {
+            "x": 399,
+            "y": 542
+          }
+        },
+        {
+          "id": "G",
+          "name": "TWY G",
+          "metersFromRef": 931,
+          "labelPoint": {
+            "x": 421,
+            "y": 886
+          }
+        },
+        {
+          "id": "F",
+          "name": "TWY F",
+          "metersFromRef": 1106,
+          "labelPoint": {
+            "x": 430,
+            "y": 995
+          }
+        },
+        {
+          "id": "E",
+          "name": "TWY E",
+          "metersFromRef": 1190,
+          "labelPoint": {
+            "x": 431,
+            "y": 1047
+          }
+        }
+      ],
+      "endFeatures": {
+        "02L": {
+          "displacedThresholdM": 0.0,
+          "stopwayM": 0.0,
+          "clearwayM": 0.0
+        },
+        "20R": {
+          "displacedThresholdM": 0.0,
+          "stopwayM": 0.0,
+          "clearwayM": 0.0
+        }
+      }
+    }
+  ]
+}
