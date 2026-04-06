@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AW139 Companion - ADC Module v35</title>
+  <title>AW139 Companion - ADC Module v36</title>
   <style>
 
     :root {
@@ -148,6 +148,8 @@
       resize: vertical;
     }
     textarea { min-height: 110px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    #geometryJson { min-height: 360px; line-height: 1.45; white-space: pre; overflow: auto; }
+    #baseJson { min-height: 180px; line-height: 1.45; white-space: pre; overflow: auto; }
     input:focus, select:focus, textarea:focus {
       border-color: rgba(32,184,255,.68);
       box-shadow: 0 0 0 3px rgba(32,184,255,.12);
@@ -959,7 +961,7 @@
               <div class="field-note">Use Base JSON para congelar uma base pronta e trazer para outra build sem depender do estado salvo localmente.</div>
               <div style="margin-top:10px;">
                 <label for="baseJson">Base pack JSON</label>
-                <textarea id="baseJson"></textarea>
+                <textarea id="baseJson" wrap="off" spellcheck="false"></textarea>
               </div>
 
               <div class="divider"></div>
@@ -977,6 +979,8 @@
               <div class="btn-row wrap" style="margin-top:12px;">
                 <button id="captureBtn">Capturar na carta</button>
                 <button id="cancelCaptureBtn">Cancelar captura</button>
+                <button id="copyPointBtn">Copiar coordenada</button>
+                <button id="pastePointBtn">Colar no selecionado</button>
                 <button id="addAnchorBtn">Adicionar âncora</button>
                 <button id="deleteAnchorBtn">Excluir âncora</button>
                 <button id="resetDefaultsBtn">Resetar pista atual</button>
@@ -991,7 +995,7 @@
                 <button id="nudgeDownBtn">↓</button>
                 <button id="nudgeRightBtn">→</button>
               </div>
-              <div class="field-note">O fine tune atua só na pista atual da base atual.</div>
+              <div class="field-note">O fine tune atua só na pista atual da base atual. Use <strong>Copiar coordenada</strong> e <strong>Colar no selecionado</strong> para igualar pontos, como PAV = THR.</div>
 
               <div style="margin-top:12px; overflow:auto; max-height:220px;">
                 <table>
@@ -1009,7 +1013,8 @@
 
               <div style="margin-top:10px;">
                 <label for="geometryJson">Geometry JSON</label>
-                <textarea id="geometryJson"></textarea>
+                <div class="field-note">Campo ampliado para inspeção e edição completa do JSON. Você pode rolar tanto na vertical quanto na horizontal.</div>
+                <textarea id="geometryJson" wrap="off" spellcheck="false"></textarea>
               </div>
 
               

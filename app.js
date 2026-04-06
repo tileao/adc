@@ -248,7 +248,8 @@ const GEOM_KEY = 'aw139_adc_geometry_v35';
       offsetX: 0,
       offsetY: 0,
       vizPage: persisted.vizPage === 'P2' ? 'P2' : 'P1',
-      advancedOpen: !!persisted.advancedOpen
+      advancedOpen: !!persisted.advancedOpen,
+      copiedAnchorPoint: null
     };
     let labelBoxes = [];
 
@@ -701,6 +702,68 @@ const GEOM_KEY = 'aw139_adc_geometry_v35';
     }
     function selectedAnchorKey() { return document.getElementById('anchorSelect')?.value || ''; }
     function selectedAnchorLabel() { const key = selectedAnchorKey(); return anchorKeys().find(k => k.key === key)?.label || key; }
+    function getIntersectionRecord(rec, runway, id) {
+      return (rec.intersections || []).find(x => x.id === id) || runway.intersections.find(x => x.id === id);
+    }
+    function getAnchorPointByKey(key, runway = currentRunway(), rec = activeGeometryRecord()) {
+      if (!key) return null;
+      if (key === 'pavementRef') return clone(rec.pavementRef || runway.pavementRef || runway.thresholdRef);
+      if (key === 'thresholdRef') return clone(rec.thresholdRef || runway.thresholdRef);
+      if (key === 'thresholdOpp') return clone(rec.thresholdOpp || runway.thresholdOpp);
+      if (key === 'pavementOpp') return clone(rec.pavementOpp || runway.pavementOpp || runway.thresholdOpp);
+      if (key.startsWith('axis_')) {
+        const id = key.replace('axis_', '');
+        const it = getIntersectionRecord(rec, runway, id);
+        if (!it) return null;
+        return pointAtMetersFromRef(it.metersFromRef, runway);
+      }
+      if (key.startsWith('label_')) {
+        const id = key.replace('label_', '');
+        const it = getIntersectionRecord(rec, runway, id);
+        if (!it?.labelPoint) return null;
+        return clone(it.labelPoint);
+      }
+      return null;
+    }
+    function applyPointToAnchorKey(key, chartPoint, runway = currentRunway(), rec = activeGeometryRecord()) {
+      if (key === 'pavementRef') {
+        rec.pavementRef = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
+      } else if (key === 'thresholdRef') {
+        rec.thresholdRef = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
+      } else if (key === 'thresholdOpp') {
+        rec.thresholdOpp = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
+      } else if (key === 'pavementOpp') {
+        rec.pavementOpp = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
+      } else if (key.startsWith('axis_')) {
+        const id = key.replace('axis_', '');
+        rec.intersections = Array.isArray(rec.intersections) ? rec.intersections : runway.intersections.map(it => ({ id: it.id, metersFromRef: it.metersFromRef, labelPoint: clone(it.labelPoint) }));
+        const it = rec.intersections.find(x => x.id === id);
+        if (it) it.metersFromRef = projectPointToRunwayMeters(chartPoint, runway);
+      } else if (key.startsWith('label_')) {
+        const id = key.replace('label_', '');
+        rec.intersections = Array.isArray(rec.intersections) ? rec.intersections : runway.intersections.map(it => ({ id: it.id, metersFromRef: it.metersFromRef, labelPoint: clone(it.labelPoint) }));
+        const it = rec.intersections.find(x => x.id === id);
+        if (it) it.labelPoint = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
+      }
+    }
+    function copySelectedAnchorPoint() {
+      const key = selectedAnchorKey();
+      const pt = getAnchorPointByKey(key);
+      if (!pt) { window.alert('Não foi possível copiar a coordenada dessa âncora.'); return; }
+      state.copiedAnchorPoint = { key, label: selectedAnchorLabel(), x: round2(pt.x), y: round2(pt.y) };
+      window.alert(`Coordenada copiada: ${state.copiedAnchorPoint.label} (${state.copiedAnchorPoint.x}, ${state.copiedAnchorPoint.y})`);
+    }
+    function pasteCopiedAnchorPoint() {
+      const copied = state.copiedAnchorPoint;
+      if (!copied) { window.alert('Nenhuma coordenada copiada.'); return; }
+      const key = selectedAnchorKey();
+      if (!key) { window.alert('Selecione a âncora de destino.'); return; }
+      applyPointToAnchorKey(key, copied);
+      saveGeometry();
+      renderAnchorTable();
+      analyze();
+      window.alert(`Destino ${selectedAnchorLabel()} igualado a ${copied.label}.`);
+    }
 
     function exportGeometryObject() {
       return clone(activeGeometryRecord());
@@ -880,28 +943,8 @@ const GEOM_KEY = 'aw139_adc_geometry_v35';
       if (on && captureBanner) captureBanner.innerHTML = `Captura ativa: <strong>${selectedAnchorLabel()}</strong><br>Toque na carta para atualizar essa âncora.`;
     }
     function applyClickToAnchor(chartPoint) {
-      const runway = currentRunway();
-      const rec = activeGeometryRecord();
       const key = selectedAnchorKey();
-      if (key === 'pavementRef') {
-        rec.pavementRef = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
-      } else if (key === 'thresholdRef') {
-        rec.thresholdRef = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
-      } else if (key === 'thresholdOpp') {
-        rec.thresholdOpp = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
-      } else if (key === 'pavementOpp') {
-        rec.pavementOpp = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
-      } else if (key.startsWith('axis_')) {
-        const id = key.replace('axis_', '');
-        rec.intersections = Array.isArray(rec.intersections) ? rec.intersections : runway.intersections.map(it => ({ id: it.id, metersFromRef: it.metersFromRef, labelPoint: clone(it.labelPoint) }));
-        const it = rec.intersections.find(x => x.id === id);
-        if (it) it.metersFromRef = projectPointToRunwayMeters(chartPoint, runway);
-      } else if (key.startsWith('label_')) {
-        const id = key.replace('label_', '');
-        rec.intersections = Array.isArray(rec.intersections) ? rec.intersections : runway.intersections.map(it => ({ id: it.id, metersFromRef: it.metersFromRef, labelPoint: clone(it.labelPoint) }));
-        const it = rec.intersections.find(x => x.id === id);
-        if (it) it.labelPoint = { x: round2(chartPoint.x), y: round2(chartPoint.y) };
-      }
+      applyPointToAnchorKey(key, chartPoint);
       saveGeometry();
       renderAnchorTable();
       analyze();
@@ -971,6 +1014,36 @@ const GEOM_KEY = 'aw139_adc_geometry_v35';
         ctx.lineWidth = 2;
         ctx.strokeStyle = 'white';
         ctx.stroke();
+      });
+    }
+    function endpointLabelCandidates(runway, point, end, kind) {
+      const g = runwayGeometry(runway);
+      const isRef = String(end) === String(runway.referenceEnd);
+      const side = isRef ? -1 : 1;
+      const base = toScreen(point);
+      const tangent = isRef ? -1 : 1;
+      const lateral = 92;
+      const along = kind === 'pavement' ? 28 : -28;
+      const main = { x: base.x + g.px * side * state.scale * lateral + g.ux * tangent * along, y: base.y + g.py * side * state.scale * lateral + g.uy * tangent * along };
+      const alt = { x: base.x - g.px * side * state.scale * (lateral - 12) + g.ux * tangent * along, y: base.y - g.py * side * state.scale * (lateral - 12) + g.uy * tangent * along };
+      return [
+        { x: main.x + 8, y: main.y - 24, align: main.x >= base.x ? 'left' : 'right' },
+        { x: main.x + 8, y: main.y + 2, align: main.x >= base.x ? 'left' : 'right' },
+        { x: alt.x + 8, y: alt.y - 24, align: alt.x >= base.x ? 'left' : 'right' },
+        { x: alt.x + 8, y: alt.y + 2, align: alt.x >= base.x ? 'left' : 'right' }
+      ];
+    }
+    function drawEndpointLabels(runway) {
+      const ends = [String(runway.referenceEnd), String(currentOppositeEnd(runway))];
+      ends.forEach(end => {
+        const pavement = pointForEnd(runway, end, 'pavement');
+        const threshold = pointForEnd(runway, end, 'threshold');
+        const sepM = Math.abs(stationMetersFromPoint(threshold, runway) - stationMetersFromPoint(pavement, runway));
+        if (sepM < 3) return;
+        const pScreen = toScreen(pavement);
+        const tScreen = toScreen(threshold);
+        drawCalloutLabel([`PAV ${end}`], pScreen, endpointLabelCandidates(runway, pavement, end, 'pavement'), '#f59e0b', runway);
+        drawCalloutLabel([`THR ${end}`], tScreen, endpointLabelCandidates(runway, threshold, end, 'threshold'), '#22d3ee', runway);
       });
     }
     function drawReferenceAxis(runway) {
@@ -1263,6 +1336,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v35';
       drawRunwayOverlay(runway, state.analysis);
       drawPavementMarkers(runway);
       drawThresholdMarkers(runway);
+      drawEndpointLabels(runway);
       runway.intersections.forEach(it => drawIntersection(runway, it));
       drawSelectedGuide(runway);
     }
@@ -1302,6 +1376,8 @@ const GEOM_KEY = 'aw139_adc_geometry_v35';
     document.getElementById('anchorSelect').addEventListener('change', renderAnchorTable);
     document.getElementById('captureBtn').addEventListener('click', () => setCaptureMode(true));
     document.getElementById('cancelCaptureBtn').addEventListener('click', () => setCaptureMode(false));
+    document.getElementById('copyPointBtn').addEventListener('click', copySelectedAnchorPoint);
+    document.getElementById('pastePointBtn').addEventListener('click', pasteCopiedAnchorPoint);
     document.getElementById('addAnchorBtn').addEventListener('click', addAnchor);
     document.getElementById('deleteAnchorBtn').addEventListener('click', deleteAnchor);
     document.getElementById('resetDefaultsBtn').addEventListener('click', () => {
