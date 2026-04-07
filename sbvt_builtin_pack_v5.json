@@ -1,12 +1,12 @@
 {
-  "id": "SBVT",
+  "id": "SBVT_DRAFT_20260407_104549",
   "code": "SBVT",
   "name": "Vitória / Eurico de Aguiar Salles, INTL",
   "city": "ES - Brasil",
   "adcTitle": "SBVT ADC 23 MAR 23",
   "engineId": "adc_sbvt_v1",
   "stability": "draft",
-  "locked": true,
+  "locked": false,
   "schemaVersion": 5,
   "defaultChartId": "ADC_MAIN",
   "defaultRunwayId": "RWY_06_24",
@@ -35,13 +35,21 @@
       "lengthM": 1750,
       "widthM": 45,
       "widthPx": 26,
+      "pavementRef": {
+        "x": 541.89,
+        "y": 396.93
+      },
+      "pavementOpp": {
+        "x": 238.65,
+        "y": 885.03
+      },
       "thresholdRef": {
-        "x": 514,
-        "y": 402
+        "x": 541.89,
+        "y": 396.93
       },
       "thresholdOpp": {
-        "x": 210,
-        "y": 875
+        "x": 238.65,
+        "y": 885.03
       },
       "declaredDistances": {
         "24": {
@@ -59,36 +67,18 @@
       },
       "intersections": [
         {
-          "id": "E",
-          "name": "TWY E",
-          "metersFromRef": 77,
-          "labelPoint": {
-            "x": 540,
-            "y": 448
-          }
-        },
-        {
           "id": "PP",
           "name": "TWY PP",
-          "metersFromRef": 628,
+          "metersFromRef": 668,
           "labelPoint": {
             "x": 404,
             "y": 577
           }
         },
         {
-          "id": "D",
-          "name": "TWY D",
-          "metersFromRef": 794,
-          "labelPoint": {
-            "x": 428,
-            "y": 650
-          }
-        },
-        {
           "id": "C",
           "name": "TWY C",
-          "metersFromRef": 809,
+          "metersFromRef": 855,
           "labelPoint": {
             "x": 382,
             "y": 626
@@ -97,41 +87,24 @@
         {
           "id": "B",
           "name": "TWY B",
-          "metersFromRef": 1112,
+          "metersFromRef": 1196,
           "labelPoint": {
             "x": 309,
             "y": 695
           }
-        },
-        {
-          "id": "A",
-          "name": "TWY A",
-          "metersFromRef": 1341,
-          "labelPoint": {
-            "x": 274,
-            "y": 760
-          }
         }
       ],
       "endFeatures": {
-        "06": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
-        },
         "24": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        },
+        "06": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         }
-      },
-      "pavementRef": {
-        "x": 514,
-        "y": 402
-      },
-      "pavementOpp": {
-        "x": 210,
-        "y": 875
       }
     },
     {
@@ -146,13 +119,21 @@
       "lengthM": 2058,
       "widthM": 45,
       "widthPx": 28,
+      "pavementRef": {
+        "x": 582.16,
+        "y": 272.74
+      },
+      "pavementOpp": {
+        "x": 677.41,
+        "y": 942.66
+      },
       "thresholdRef": {
-        "x": 592,
-        "y": 278
+        "x": 582.16,
+        "y": 272.74
       },
       "thresholdOpp": {
-        "x": 673,
-        "y": 947
+        "x": 677.41,
+        "y": 942.66
       },
       "declaredDistances": {
         "20": {
@@ -190,41 +171,24 @@
         {
           "id": "J",
           "name": "TWY J",
-          "metersFromRef": 1258,
+          "metersFromRef": 1282,
           "labelPoint": {
             "x": 615,
             "y": 690
           }
-        },
-        {
-          "id": "H",
-          "name": "TWY H",
-          "metersFromRef": 2036,
-          "labelPoint": {
-            "x": 639,
-            "y": 944
-          }
         }
       ],
       "endFeatures": {
-        "02": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
-        },
         "20": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        },
+        "02": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         }
-      },
-      "pavementRef": {
-        "x": 592,
-        "y": 278
-      },
-      "pavementOpp": {
-        "x": 673,
-        "y": 947
       }
     }
   ]

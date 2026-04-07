@@ -76,15 +76,6 @@
           }
         },
         {
-          "id": "B",
-          "name": "TWY B",
-          "metersFromRef": 0,
-          "labelPoint": {
-            "x": 2310.06,
-            "y": 3704.24
-          }
-        },
-        {
           "id": "C",
           "name": "TWY C",
           "metersFromRef": 621,
@@ -106,64 +97,6 @@
           "stopwayM": 0,
           "clearwayM": 0,
           "operationalStartM": 0
-        }
-      },
-      "distanceLogic": {
-        "27": {
-          "tora": {
-            "start": "OP:27",
-            "end": "PAV:09"
-          },
-          "toda": {
-            "start": "OP:27",
-            "end": "PAV:09"
-          },
-          "asda": {
-            "start": "OP:27",
-            "end": "PAV:09"
-          },
-          "lda": {
-            "start": "OP:27",
-            "end": "PAV:09"
-          }
-        },
-        "09": {
-          "tora": {
-            "start": "PAV:09",
-            "end": "THR:27"
-          },
-          "toda": {
-            "start": "PAV:09",
-            "end": "THR:27"
-          },
-          "asda": {
-            "start": "PAV:09",
-            "end": "PAV:27"
-          },
-          "lda": {
-            "start": "THR:09",
-            "end": "THR:27"
-          }
-        }
-      },
-      "visualOverrides": {
-        "27": {
-          "showLabels": [
-            "OP:27",
-            "THR:27",
-            "PAV:27"
-          ],
-          "redAnchors": [
-            "THR:27",
-            "PAV:27",
-            "INT:B"
-          ],
-          "tableAnchors": []
-        },
-        "09": {
-          "tableAnchors": [
-            "THR:09"
-          ]
         }
       }
     }

@@ -7,7 +7,7 @@
   "engineId": "adc_sbfs_v1",
   "stability": "draft",
   "locked": true,
-  "schemaVersion": 3,
+  "schemaVersion": 5,
   "defaultChartId": "ADC_MAIN",
   "defaultRunwayId": "RWY_15_33",
   "charts": [
@@ -29,19 +29,27 @@
       "chartId": "ADC_MAIN",
       "referenceEnd": "15",
       "ends": [
-        "15",
-        "33"
+        "33",
+        "15"
       ],
       "lengthM": 580,
       "widthM": 31.5,
       "widthPx": 24,
+      "pavementRef": {
+        "x": 208.82,
+        "y": 544.88
+      },
+      "pavementOpp": {
+        "x": 684.03,
+        "y": 855.5
+      },
       "thresholdRef": {
-        "x": 203,
-        "y": 559
+        "x": 208.82,
+        "y": 544.88
       },
       "thresholdOpp": {
-        "x": 684,
-        "y": 813
+        "x": 684.03,
+        "y": 855.5
       },
       "declaredDistances": {
         "15": {
@@ -59,24 +67,27 @@
       },
       "intersections": [
         {
-          "id": "B",
-          "name": "TWY B",
-          "metersFromRef": 15,
-          "labelPoint": {
-            "x": 250,
-            "y": 501
-          }
-        },
-        {
           "id": "A",
           "name": "TWY A",
-          "metersFromRef": 301,
+          "metersFromRef": 291,
           "labelPoint": {
             "x": 475,
             "y": 649
           }
         }
-      ]
+      ],
+      "endFeatures": {
+        "15": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        },
+        "33": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        }
+      }
     }
   ]
 }

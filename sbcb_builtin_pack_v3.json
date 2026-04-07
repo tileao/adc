@@ -67,15 +67,6 @@
       },
       "intersections": [
         {
-          "id": "A",
-          "name": "TWY A",
-          "metersFromRef": 13,
-          "labelPoint": {
-            "x": 430,
-            "y": 242
-          }
-        },
-        {
           "id": "B",
           "name": "TWY B",
           "metersFromRef": 421,

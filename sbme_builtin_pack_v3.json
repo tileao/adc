@@ -7,7 +7,7 @@
   "engineId": "adc_sbme_v1",
   "stability": "stable",
   "locked": true,
-  "schemaVersion": 3,
+  "schemaVersion": 5,
   "defaultChartId": "ADC_MAIN",
   "defaultRunwayId": "RWY_05_23",
   "charts": [
@@ -35,6 +35,14 @@
       "lengthM": 1410,
       "widthM": 30,
       "widthPx": 27,
+      "pavementRef": {
+        "x": 617.68,
+        "y": 268.22
+      },
+      "pavementOpp": {
+        "x": 182.56,
+        "y": 1068.5
+      },
       "thresholdRef": {
         "x": 617.68,
         "y": 268.22
@@ -85,7 +93,19 @@
             "y": 899.21
           }
         }
-      ]
+      ],
+      "endFeatures": {
+        "23": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        },
+        "05": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        }
+      }
     },
     {
       "id": "RWY_06_24",
@@ -99,13 +119,21 @@
       "lengthM": 899,
       "widthM": 30,
       "widthPx": 25,
+      "pavementRef": {
+        "x": 623.03,
+        "y": 425.75
+      },
+      "pavementOpp": {
+        "x": 311.18,
+        "y": 916.06
+      },
       "thresholdRef": {
-        "x": 668,
-        "y": 329
+        "x": 623.03,
+        "y": 425.75
       },
       "thresholdOpp": {
-        "x": 250,
-        "y": 969
+        "x": 311.18,
+        "y": 916.06
       },
       "declaredDistances": {
         "24": {
@@ -123,33 +151,27 @@
       },
       "intersections": [
         {
-          "id": "D",
-          "name": "TWY D",
-          "metersFromRef": 150,
-          "labelPoint": {
-            "x": 650,
-            "y": 442
-          }
-        },
-        {
           "id": "B",
           "name": "TWY B",
-          "metersFromRef": 430,
+          "metersFromRef": 415,
           "labelPoint": {
             "x": 502,
             "y": 680
           }
-        },
-        {
-          "id": "A",
-          "name": "TWY A",
-          "metersFromRef": 760,
-          "labelPoint": {
-            "x": 286,
-            "y": 937
-          }
         }
-      ]
+      ],
+      "endFeatures": {
+        "24": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        },
+        "06": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        }
+      }
     }
   ]
 }

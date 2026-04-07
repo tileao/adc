@@ -1,7 +1,7 @@
 {
   "id": "SBMI",
   "code": "SBMI",
-  "name": "Maric\u00e1 / Maric\u00e1",
+  "name": "Maricá / Maricá",
   "city": "RJ - Brasil",
   "adcTitle": "SBMI ADC / AVOP 2026",
   "engineId": "adc_sbmi_v1",
@@ -73,15 +73,6 @@
           "labelPoint": {
             "x": 1960,
             "y": 2780
-          }
-        },
-        {
-          "id": "B",
-          "name": "TWY B",
-          "metersFromRef": 0,
-          "labelPoint": {
-            "x": 2310.06,
-            "y": 3704.24
           }
         },
         {

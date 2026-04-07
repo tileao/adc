@@ -6,8 +6,8 @@
   "adcTitle": "SBJR ADC 27 NOV 25",
   "engineId": "adc_sbjr_v1",
   "stability": "draft",
-  "locked": true,
-  "schemaVersion": 3,
+  "locked": false,
+  "schemaVersion": 5,
   "defaultChartId": "ADC_MAIN",
   "defaultRunwayId": "RWY_03_21",
   "charts": [
@@ -35,22 +35,30 @@
       "lengthM": 900,
       "widthM": 30,
       "widthPx": 18,
+      "pavementRef": {
+        "x": 344.33,
+        "y": 358.79
+      },
+      "pavementOpp": {
+        "x": 309,
+        "y": 995
+      },
       "thresholdRef": {
-        "x": 349,
-        "y": 360
+        "x": 344.33,
+        "y": 358.79
       },
       "thresholdOpp": {
         "x": 309,
         "y": 995
       },
       "declaredDistances": {
-        "03": {
+        "21": {
           "tora": 900,
           "toda": 900,
           "asda": 900,
           "lda": 900
         },
-        "21": {
+        "03": {
           "tora": 900,
           "toda": 900,
           "asda": 900,
@@ -61,7 +69,7 @@
         {
           "id": "D",
           "name": "TWY D",
-          "metersFromRef": 309,
+          "metersFromRef": 372,
           "labelPoint": {
             "x": 364,
             "y": 580
@@ -70,31 +78,25 @@
         {
           "id": "C",
           "name": "TWY C",
-          "metersFromRef": 584,
+          "metersFromRef": 549,
           "labelPoint": {
-            "x": 351,
-            "y": 774
-          }
-        },
-        {
-          "id": "A",
-          "name": "TWY A",
-          "metersFromRef": 801,
-          "labelPoint": {
-            "x": 372,
-            "y": 929
-          }
-        },
-        {
-          "id": "B",
-          "name": "TWY B",
-          "metersFromRef": 894,
-          "labelPoint": {
-            "x": 342,
-            "y": 993
+            "x": 365.79,
+            "y": 751.14
           }
         }
-      ]
+      ],
+      "endFeatures": {
+        "21": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        },
+        "03": {
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
+        }
+      }
     }
   ]
 }

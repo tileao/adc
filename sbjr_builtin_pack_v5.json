@@ -83,24 +83,6 @@
             "x": 365.79,
             "y": 751.14
           }
-        },
-        {
-          "id": "E",
-          "name": "TWY E",
-          "metersFromRef": 0,
-          "labelPoint": {
-            "x": 381.26,
-            "y": 368.02
-          }
-        },
-        {
-          "id": "B",
-          "name": "TWY B",
-          "metersFromRef": 900,
-          "labelPoint": {
-            "x": 342,
-            "y": 993
-          }
         }
       ],
       "endFeatures": {
