@@ -76,7 +76,9 @@
       "pavementOpp": {
         "x": 700,
         "y": 900
-      }
+      },
+      "distanceLogic": {},
+      "visualOverrides": {}
     }
   ]
 }

@@ -1,7 +1,7 @@
-const GEOM_KEY = 'aw139_adc_geometry_v48';
+const GEOM_KEY = 'aw139_adc_geometry_v49';
     const CUSTOM_BASES_KEY = 'aw139_adc_custom_bases_v3';
     const INBOX_KEY = 'aw139_adc_inbox_v1';
-    const STATE_KEY = 'aw139_adc_state_v48';
+    const STATE_KEY = 'aw139_adc_state_v49';
 
     const BUILTIN_BASES = {"SBNF":{"id":"SBNF","code":"SBNF","name":"Navegantes / Ministro Victor Konder, INTL","city":"SC - Brasil","adcTitle":"SBNF ADC 15 MAY 25","engineId":"adc_sbnf_v1","stability":"stable","locked":true,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_08_26","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbnf_chart_p1.png","assetName":"sbnf_chart_p1.png","size":{"width":1191,"height":1684}}],"runways":[{"id":"RWY_08_26","label":"08/26","chartId":"ADC_MAIN","referenceEnd":"26","ends":["08","26"],"lengthM":1800,"widthM":45,"widthPx":45,"thresholdRef":{"x":187.91,"y":285.01},"thresholdOpp":{"x":952.76,"y":1383.23},"declaredDistances":{"26":{"tora":1800,"toda":1800,"asda":1800,"lda":1800},"08":{"tora":1800,"toda":1800,"asda":1800,"lda":1800}},"intersections":[{"id":"B","name":"TWY B","metersFromRef":739,"labelPoint":{"x":545.2,"y":707.89}},{"id":"A","name":"TWY A","metersFromRef":891,"labelPoint":{"x":608.08,"y":799.51}}],"endFeatures":{"26":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"08":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}},"pavementRef":{"x":187.91,"y":285.01},"pavementOpp":{"x":952.76,"y":1383.23}}]},"SBME":{"id":"SBME","code":"SBME","name":"Maca\u00e9 / Joaquim de Azevedo Mancebo","city":"RJ - Brasil","adcTitle":"SBME ADC 10 JUL 25","engineId":"adc_sbme_v1","stability":"stable","locked":true,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_05_23","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbme_chart_p1.png","assetName":"sbme_chart_p1.png","size":{"width":862,"height":1300}}],"runways":[{"id":"RWY_05_23","label":"05/23","chartId":"ADC_MAIN","referenceEnd":"23","ends":["05","23"],"lengthM":1410,"widthM":30,"widthPx":27,"pavementRef":{"x":617.68,"y":268.22},"pavementOpp":{"x":182.56,"y":1068.5},"thresholdRef":{"x":617.68,"y":268.22},"thresholdOpp":{"x":182.56,"y":1068.5},"declaredDistances":{"23":{"tora":1410,"toda":1410,"asda":1410,"lda":1410},"05":{"tora":1410,"toda":1410,"asda":1410,"lda":1410}},"intersections":[{"id":"D","name":"TWY D","metersFromRef":216,"labelPoint":{"x":573.15,"y":404.58}},{"id":"B","name":"TWY B","metersFromRef":623,"labelPoint":{"x":454,"y":633}},{"id":"A","name":"TWY A","metersFromRef":1101,"labelPoint":{"x":294.69,"y":899.21}}],"endFeatures":{"23":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"05":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}},{"id":"RWY_06_24","label":"06/24","chartId":"ADC_MAIN","referenceEnd":"24","ends":["06","24"],"lengthM":899,"widthM":30,"widthPx":25,"pavementRef":{"x":623.03,"y":425.75},"pavementOpp":{"x":311.18,"y":916.06},"thresholdRef":{"x":623.03,"y":425.75},"thresholdOpp":{"x":311.18,"y":916.06},"declaredDistances":{"24":{"tora":899,"toda":899,"asda":899,"lda":899},"06":{"tora":899,"toda":899,"asda":899,"lda":899}},"intersections":[{"id":"D","name":"TWY D","metersFromRef":0,"labelPoint":{"x":650,"y":442}},{"id":"B","name":"TWY B","metersFromRef":415,"labelPoint":{"x":502,"y":680}},{"id":"A","name":"TWY A","metersFromRef":899,"labelPoint":{"x":349.83,"y":931.52}}],"endFeatures":{"24":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"06":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}}]},"SBVT":{"id":"SBVT","code":"SBVT","name":"Vit\u00f3ria / Eurico de Aguiar Salles, INTL","city":"ES - Brasil","adcTitle":"SBVT ADC 23 MAR 23","engineId":"adc_sbvt_v1","stability":"draft","locked":true,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_06_24","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbvt_chart_p1.png","assetName":"sbvt_chart_p1.png","size":{"width":863,"height":1300}}],"runways":[{"id":"RWY_06_24","label":"06/24","chartId":"ADC_MAIN","referenceEnd":"24","ends":["06","24"],"lengthM":1750,"widthM":45,"widthPx":26,"thresholdRef":{"x":514,"y":402},"thresholdOpp":{"x":210,"y":875},"declaredDistances":{"24":{"tora":1750,"toda":1750,"asda":1750,"lda":1750},"06":{"tora":1750,"toda":1750,"asda":1750,"lda":1750}},"intersections":[{"id":"E","name":"TWY E","metersFromRef":77,"labelPoint":{"x":540,"y":448}},{"id":"PP","name":"TWY PP","metersFromRef":628,"labelPoint":{"x":404,"y":577}},{"id":"D","name":"TWY D","metersFromRef":794,"labelPoint":{"x":428,"y":650}},{"id":"C","name":"TWY C","metersFromRef":809,"labelPoint":{"x":382,"y":626}},{"id":"B","name":"TWY B","metersFromRef":1112,"labelPoint":{"x":309,"y":695}},{"id":"A","name":"TWY A","metersFromRef":1341,"labelPoint":{"x":274,"y":760}}],"endFeatures":{"06":{"displacedThresholdM":0.0,"stopwayM":0.0,"clearwayM":0.0},"24":{"displacedThresholdM":0.0,"stopwayM":0.0,"clearwayM":0.0}},"pavementRef":{"x":514,"y":402},"pavementOpp":{"x":210,"y":875}},{"id":"RWY_02_20","label":"02/20","chartId":"ADC_MAIN","referenceEnd":"20","ends":["02","20"],"lengthM":2058,"widthM":45,"widthPx":28,"thresholdRef":{"x":592,"y":278},"thresholdOpp":{"x":673,"y":947},"declaredDistances":{"20":{"tora":2058,"toda":2058,"asda":2058,"lda":2058},"02":{"tora":2058,"toda":2058,"asda":2058,"lda":2058}},"intersections":[{"id":"M","name":"TWY M","metersFromRef":209,"labelPoint":{"x":582,"y":348}},{"id":"K","name":"TWY K","metersFromRef":509,"labelPoint":{"x":574,"y":448}},{"id":"J","name":"TWY J","metersFromRef":1258,"labelPoint":{"x":615,"y":690}},{"id":"H","name":"TWY H","metersFromRef":2036,"labelPoint":{"x":639,"y":944}}],"endFeatures":{"02":{"displacedThresholdM":0.0,"stopwayM":0.0,"clearwayM":0.0},"20":{"displacedThresholdM":0.0,"stopwayM":0.0,"clearwayM":0.0}},"pavementRef":{"x":592,"y":278},"pavementOpp":{"x":673,"y":947}}]},"SBGL":{"id":"SBGL_DRAFT_20260407_093227","code":"SBGL","name":"Rio de Janeiro / Gale\u00e3o - Ant\u00f4nio Carlos Jobim, INTL","city":"RJ - Brasil","adcTitle":"SBGL ADC 05 SEP 24","engineId":"adc_sbgl_v1","stability":"draft","locked":false,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_10_28","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbgl_chart_p1.png","assetName":"sbgl_chart_p1.png","size":{"width":863,"height":1300}}],"runways":[{"id":"RWY_10_28","label":"10/28","chartId":"ADC_MAIN","referenceEnd":"28","ends":["10","28"],"lengthM":4000,"widthM":45,"widthPx":27,"pavementRef":{"x":120.53,"y":304.08},"pavementOpp":{"x":282.04,"y":885.64},"thresholdRef":{"x":120.53,"y":304.08},"thresholdOpp":{"x":282.04,"y":885.64},"declaredDistances":{"10":{"tora":4000,"toda":4000,"asda":4000,"lda":4000},"28":{"tora":4000,"toda":4000,"asda":4000,"lda":4000}},"intersections":[{"id":"DD","name":"TWY DD","metersFromRef":1329,"labelPoint":{"x":187,"y":523}},{"id":"CC","name":"TWY CC","metersFromRef":1750,"labelPoint":{"x":196,"y":585}},{"id":"BB","name":"TWY BB","metersFromRef":2269,"labelPoint":{"x":224,"y":656}},{"id":"AA","name":"TWY AA","metersFromRef":2679,"labelPoint":{"x":243,"y":713}}]},{"id":"RWY_15_33","label":"15/33","chartId":"ADC_MAIN","referenceEnd":"33","ends":["15","33"],"lengthM":3180,"widthM":47,"widthPx":27,"pavementRef":{"x":736.85,"y":627.45},"pavementOpp":{"x":459.22,"y":1016.41},"thresholdRef":{"x":727.36,"y":642.96},"thresholdOpp":{"x":470.08,"y":1001.68},"declaredDistances":{"15":{"tora":3060,"toda":3180,"asda":3060,"lda":2930},"33":{"tora":3050,"toda":3180,"asda":3050,"lda":2930}},"intersections":[{"id":"J","name":"TWY J","metersFromRef":460,"labelPoint":{"x":650,"y":690}},{"id":"E","name":"TWY E","metersFromRef":1057,"labelPoint":{"x":617,"y":743}},{"id":"D","name":"TWY D","metersFromRef":1629,"labelPoint":{"x":487,"y":933}}],"endFeatures":{"15":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"33":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}}]},"SBRJ":{"id":"SBRJ","code":"SBRJ","name":"Rio de Janeiro / Santos Dumont","city":"RJ - Brasil","adcTitle":"SBRJ ADC 27 NOV 25","engineId":"adc_sbrj_v1","stability":"draft","locked":true,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_02L_20R","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbrj_chart_p1.png","assetName":"sbrj_chart_p1.png","size":{"width":863,"height":1300}}],"runways":[{"id":"RWY_02L_20R","label":"02L/20R","chartId":"ADC_MAIN","referenceEnd":"20R","ends":["02L","20R"],"lengthM":1260,"widthM":30,"widthPx":24,"pavementRef":{"x":368.82,"y":314.92},"pavementOpp":{"x":402.57,"y":1056.19},"thresholdRef":{"x":368.82,"y":314.92},"thresholdOpp":{"x":402.57,"y":1056.19},"declaredDistances":{"02L":{"tora":1260,"toda":1260,"asda":1260,"lda":1260},"20R":{"tora":1260,"toda":1260,"asda":1260,"lda":1260}},"intersections":[{"id":"A","name":"TWY A","metersFromRef":0,"labelPoint":{"x":355,"y":328}},{"id":"B","name":"TWY B","metersFromRef":377,"labelPoint":{"x":365,"y":543}},{"id":"C","name":"TWY C","metersFromRef":973,"labelPoint":{"x":398,"y":955}},{"id":"D","name":"TWY D","metersFromRef":1182,"labelPoint":{"x":392,"y":1063}}],"endFeatures":{"02L":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"20R":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}},{"id":"RWY_02R_20L","label":"02R/20L","chartId":"ADC_MAIN","referenceEnd":"20L","ends":["02R","20L"],"lengthM":1323,"widthM":42,"widthPx":30,"pavementRef":{"x":413.42,"y":311.31},"pavementOpp":{"x":449.58,"y":1090.54},"thresholdRef":{"x":413.42,"y":311.31},"thresholdOpp":{"x":449.58,"y":1090.54},"declaredDistances":{"02R":{"tora":1323,"toda":1323,"asda":1323,"lda":1323},"20L":{"tora":1323,"toda":1323,"asda":1323,"lda":1323}},"intersections":[{"id":"A","name":"TWY A","metersFromRef":0,"labelPoint":{"x":398,"y":329}},{"id":"H","name":"TWY H","metersFromRef":379,"labelPoint":{"x":410,"y":543}},{"id":"G","name":"TWY G","metersFromRef":972,"labelPoint":{"x":432,"y":957}},{"id":"F","name":"TWY F","metersFromRef":1176,"labelPoint":{"x":439,"y":1061}},{"id":"E","name":"TWY E","metersFromRef":1323,"labelPoint":{"x":447,"y":1112}}],"endFeatures":{"02R":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"20L":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}}]},"SBJR":{"id":"SBJR","code":"SBJR","name":"Rio de Janeiro / Jacarepagu\u00e1 - Roberto Marinho","city":"RJ - Brasil","adcTitle":"SBJR ADC 27 NOV 25","engineId":"adc_sbjr_v1","stability":"draft","locked":false,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_03_21","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbjr_chart_p1.png","assetName":"sbjr_chart_p1.png","size":{"width":863,"height":1300}}],"runways":[{"id":"RWY_03_21","label":"03/21","chartId":"ADC_MAIN","referenceEnd":"21","ends":["03","21"],"lengthM":900,"widthM":30,"widthPx":18,"pavementRef":{"x":344.33,"y":358.79},"pavementOpp":{"x":309,"y":995},"thresholdRef":{"x":344.33,"y":358.79},"thresholdOpp":{"x":309,"y":995},"declaredDistances":{"21":{"tora":900,"toda":900,"asda":900,"lda":900},"03":{"tora":900,"toda":900,"asda":900,"lda":900}},"intersections":[{"id":"D","name":"TWY D","metersFromRef":372,"labelPoint":{"x":364,"y":580}},{"id":"C","name":"TWY C","metersFromRef":549,"labelPoint":{"x":365.79,"y":751.14}},{"id":"E","name":"TWY E","metersFromRef":0,"labelPoint":{"x":381.26,"y":368.02}},{"id":"B","name":"TWY B","metersFromRef":900,"labelPoint":{"x":342,"y":993}}],"endFeatures":{"21":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"03":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}}]},"SBCB":{"id":"SBCB","code":"SBCB","name":"Cabo Frio / Cabo Frio, INTL","city":"RJ - Brasil","adcTitle":"SBCB ADC 16 JUN 22","engineId":"adc_sbcb_v1","stability":"draft","locked":true,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_10_28","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbcb_chart_p1.png","assetName":"sbcb_chart_p1.png","size":{"width":863,"height":1300}}],"runways":[{"id":"RWY_10_28","label":"10/28","chartId":"ADC_MAIN","referenceEnd":"10","ends":["28","10"],"lengthM":2550,"widthM":45,"widthPx":29,"pavementRef":{"x":448.06,"y":208.19},"pavementOpp":{"x":652.07,"y":1153.82},"thresholdRef":{"x":454.4,"y":241.4},"thresholdOpp":{"x":643.63,"y":1120.07},"declaredDistances":{"10":{"tora":2460,"toda":2550,"asda":2460,"lda":2370},"28":{"tora":2460,"toda":2550,"asda":2460,"lda":2370}},"intersections":[{"id":"A","name":"TWY A","metersFromRef":13,"labelPoint":{"x":430,"y":242}},{"id":"B","name":"TWY B","metersFromRef":421,"labelPoint":{"x":457,"y":377}}],"endFeatures":{"10":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"28":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}}]},"SBFS":{"id":"SBFS","code":"SBFS","name":"Campo dos Goytacazes / Farol de S\u00e3o Tom\u00e9","city":"RJ - Brasil","adcTitle":"SBFS ADC 19 FEB 26","engineId":"adc_sbfs_v1","stability":"draft","locked":true,"schemaVersion":5,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_15_33","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbfs_chart_p1.png","assetName":"sbfs_chart_p1.png","size":{"width":863,"height":1300}}],"runways":[{"id":"RWY_15_33","label":"15/33","chartId":"ADC_MAIN","referenceEnd":"15","ends":["33","15"],"lengthM":580,"widthM":31.5,"widthPx":24,"pavementRef":{"x":208.82,"y":544.88},"pavementOpp":{"x":684.03,"y":855.5},"thresholdRef":{"x":208.82,"y":544.88},"thresholdOpp":{"x":684.03,"y":855.5},"declaredDistances":{"15":{"tora":580,"toda":580,"asda":580,"lda":580},"33":{"tora":580,"toda":580,"asda":580,"lda":580}},"intersections":[{"id":"B","name":"TWY B","metersFromRef":0,"labelPoint":{"x":250,"y":501}},{"id":"A","name":"TWY A","metersFromRef":291,"labelPoint":{"x":475,"y":649}}],"endFeatures":{"15":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0},"33":{"displacedThresholdM":0,"stopwayM":0,"clearwayM":0}}}]},"SBMI":{"id":"SBMI","code":"SBMI","name":"Maric\u00e1 / Maric\u00e1","city":"RJ - Brasil","adcTitle":"SBMI ADC / AVOP 2026","engineId":"adc_sbmi_v1","stability":"stable","locked":true,"schemaVersion":6,"defaultChartId":"ADC_MAIN","defaultRunwayId":"RWY_09_27","charts":[{"id":"ADC_MAIN","label":"ADC principal","asset":"sbmi_chart_p1.png","assetName":"sbmi_chart_p1.png","size":{"width":3308,"height":4678}}],"runways":[{"id":"RWY_09_27","label":"09/27","chartId":"ADC_MAIN","referenceEnd":"27","ends":["09","27"],"lengthM":1190,"widthM":30,"widthPx":26,"pavementRef":{"x":2427.49,"y":3617.34},"pavementOpp":{"x":1335.21,"y":943.73},"thresholdRef":{"x":2351.64,"y":3431.66},"thresholdOpp":{"x":1575.46,"y":1530.48},"declaredDistances":{"27":{"tora":900,"toda":900,"asda":900,"lda":900},"09":{"tora":1110,"toda":1110,"asda":1190,"lda":930}},"intersections":[{"id":"A","name":"TWY A","metersFromRef":375,"labelPoint":{"x":1960,"y":2780}},{"id":"B","name":"TWY B","metersFromRef":0,"labelPoint":{"x":2310.06,"y":3704.24}},{"id":"C","name":"TWY C","metersFromRef":621,"labelPoint":{"x":1845,"y":2315}}],"endFeatures":{"27":{"displacedThresholdM":80,"stopwayM":0,"clearwayM":0,"operationalStartM":290},"09":{"displacedThresholdM":260,"stopwayM":0,"clearwayM":0,"operationalStartM":0}}}]}};
 
@@ -10,31 +10,51 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
         id: 'adc_generic_v1',
         label: 'ADC generic v1',
         analyze({ base, runway, dep, rto }) {
-          const declared = runway.declaredDistances?.[dep] || { tora: runway.lengthM, toda: runway.lengthM, asda: runway.lengthM, lda: runway.lengthM };
-          const features = runway.endFeatures?.[dep] || { displacedThresholdM: 0, stopwayM: 0, clearwayM: 0, operationalStartM: 0 };
-          const meta = departureMeta(runway, dep);
-          const starts = [{ id: 'FULL', name: meta.startLabel || meta.startThr, metersFromRef: meta.fullLengthMetersFromRef }]
+          const declared = clone(runway.declaredDistances?.[dep] || { tora: runway.lengthM, toda: runway.lengthM, asda: runway.lengthM, lda: runway.lengthM });
+          const features = clone(runway.endFeatures?.[dep] || { displacedThresholdM: 0, stopwayM: 0, clearwayM: 0, operationalStartM: 0 });
+          const logic = distanceLogicFor(runway, dep);
+          const visual = visualOverrideFor(runway, dep);
+          const metrics = {};
+          ['tora','toda','asda','lda'].forEach(name => {
+            const startToken = logic[name]?.start;
+            const endToken = logic[name]?.end;
+            const startMeters = anchorMeters(runway, startToken, dep);
+            const endMeters = anchorMeters(runway, endToken, dep);
+            metrics[name] = {
+              startToken, endToken, startMeters, endMeters,
+              startPoint: anchorPoint(runway, startToken, dep),
+              endPoint: anchorPoint(runway, endToken, dep),
+              fullLength: Number.isFinite(startMeters) && Number.isFinite(endMeters) ? Math.max(0, orientedDistanceMeters(startMeters, endMeters, runway, dep)) : Number(declared[name] || 0)
+            };
+          });
+          const fullAsda = metrics.asda.fullLength;
+          const startRows = [{ id: 'FULL', name: anchorLabel(metrics.asda.startToken) || dep, metersFromRef: metrics.asda.startMeters, anchorToken: metrics.asda.startToken, labelPoint: metrics.asda.startPoint }]
             .concat(specialAnalysisRows(base, runway, dep))
-            .concat((runway.intersections || []).map(it => ({ id: it.id, name: it.name, metersFromRef: it.metersFromRef, labelPoint: clone(it.labelPoint || null) })));
-          const rows = starts.map(item => {
-            const distStart = distanceFromStart(item.metersFromRef, runway, dep);
-            const availableTora = Math.max(0, declared.tora - distStart);
-            const availableToda = Math.max(0, declared.toda - distStart);
-            const availableAsda = Math.max(0, declared.asda - distStart);
+            .concat((runway.intersections || []).map(it => ({ id: it.id, name: it.name, metersFromRef: Number(it.metersFromRef), labelPoint: clone(it.labelPoint || null), anchorToken: anchorToken('INT', it.id) })));
+          const rows = startRows.map(item => {
+            const pointM = Number(item.metersFromRef);
+            const fromAsdaStart = Number.isFinite(metrics.asda.startMeters) ? orientedDistanceMeters(metrics.asda.startMeters, pointM, runway, dep) : 0;
+            const availableAsda = Number.isFinite(metrics.asda.endMeters) ? Math.max(0, orientedDistanceMeters(pointM, metrics.asda.endMeters, runway, dep)) : Math.max(0, declared.asda - fromAsdaStart);
+            const availableTora = Number.isFinite(metrics.tora.endMeters) ? Math.max(0, orientedDistanceMeters(pointM, metrics.tora.endMeters, runway, dep)) : Math.max(0, declared.tora - fromAsdaStart);
+            const availableToda = Number.isFinite(metrics.toda.endMeters) ? Math.max(0, orientedDistanceMeters(pointM, metrics.toda.endMeters, runway, dep)) : Math.max(0, declared.toda - fromAsdaStart);
             return {
               ...item,
-              distStart,
+              distStart: fromAsdaStart,
               availableTora,
               availableToda,
               availableAsda,
               rtoOk: availableAsda >= rto,
               go: availableAsda >= rto
             };
-          }).filter(r => r.distStart >= -0.5).map(r => ({ ...r, distStart: Math.max(0, r.distStart) })).sort((a, b) => a.distStart - b.distStart);
-          const gateByAsda = declared.asda - rto;
+          }).filter(r => Number.isFinite(r.metersFromRef) && r.distStart >= -0.5 && r.availableAsda >= -0.5)
+            .map(r => ({ ...r, distStart: Math.max(0, r.distStart) }))
+            .sort((a, b) => a.distStart - b.distStart);
+          const gateByAsda = fullAsda - rto;
           const anyStartValid = gateByAsda >= 0;
-          const gateDrawOffsetFromStart = clamp(gateByAsda, 0, runway.lengthM);
-          const gateMRef = gateMetersFromRef(gateDrawOffsetFromStart, runway, dep);
+          const gateDrawOffsetFromStart = clamp(gateByAsda, 0, fullAsda);
+          const gateMRef = Number.isFinite(metrics.asda.startMeters)
+            ? stationAtOffsetFromStart(metrics.asda.startMeters, gateDrawOffsetFromStart, runway, dep)
+            : gateMetersFromRef(gateDrawOffsetFromStart, runway, dep);
           return {
             baseId: base.id,
             runwayId: runway.id,
@@ -43,7 +63,18 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
             declared,
             features,
             rows,
-            meta,
+            logic,
+            metrics,
+            visual,
+            meta: {
+              startThr: dep,
+              endThr: currentOppositeEnd(runway),
+              startLabel: anchorLabel(metrics.asda.startToken) || dep,
+              fullLengthMetersFromRef: metrics.asda.startMeters,
+              startStationMetersFromRef: metrics.asda.startMeters,
+              startKind: metrics.asda.startToken,
+              profile: logic
+            },
             gateByAsda,
             gateOffsetFromStart: gateByAsda,
             gateDrawOffsetFromStart,
@@ -105,6 +136,39 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
         }
       }
     };
+
+
+    (function patchBuiltinLogic() {
+      const sbmi = BUILTIN_BASES?.SBMI?.runways?.find(r => r.id === 'RWY_09_27');
+      if (!sbmi) return;
+      sbmi.endFeatures = sbmi.endFeatures || {};
+      sbmi.endFeatures['27'] = { ...(sbmi.endFeatures['27'] || {}), operationalStartM: 290, displacedThresholdM: 80, stopwayM: 0, clearwayM: 0 };
+      sbmi.endFeatures['09'] = { ...(sbmi.endFeatures['09'] || {}), operationalStartM: 0, displacedThresholdM: 260, stopwayM: 0, clearwayM: 0 };
+      sbmi.distanceLogic = {
+        '27': {
+          tora: { start: 'OP:27', end: 'PAV:09' },
+          toda: { start: 'OP:27', end: 'PAV:09' },
+          asda: { start: 'OP:27', end: 'PAV:09' },
+          lda:  { start: 'OP:27', end: 'PAV:09' }
+        },
+        '09': {
+          tora: { start: 'PAV:09', end: 'THR:27' },
+          toda: { start: 'PAV:09', end: 'THR:27' },
+          asda: { start: 'PAV:09', end: 'PAV:27' },
+          lda:  { start: 'THR:09', end: 'THR:27' }
+        }
+      };
+      sbmi.visualOverrides = {
+        '27': {
+          showLabels: ['OP:27', 'THR:27', 'PAV:27'],
+          redAnchors: ['THR:27', 'PAV:27', 'INT:B'],
+          tableAnchors: []
+        },
+        '09': {
+          tableAnchors: ['THR:09']
+        }
+      };
+    })();
 
     function clone(v) { return JSON.parse(JSON.stringify(v)); }
     function round2(v) { return Math.round(v * 100) / 100; }
@@ -232,7 +296,10 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
           pavementOpp: { x: Number((rw.pavementOpp || rw.thresholdOpp)?.x || 0), y: Number((rw.pavementOpp || rw.thresholdOpp)?.y || 0) },
           thresholdRef: { x: Number(rw.thresholdRef?.x || 0), y: Number(rw.thresholdRef?.y || 0) },
           thresholdOpp: { x: Number(rw.thresholdOpp?.x || 0), y: Number(rw.thresholdOpp?.y || 0) },
-          declaredDistances: rw.declaredDistances || {},
+          declaredDistances: clone(rw.declaredDistances || {}),
+          endFeatures: clone(rw.endFeatures || {}),
+          distanceLogic: clone(rw.distanceLogic || {}),
+          visualOverrides: clone(rw.visualOverrides || {}),
           intersections: (rw.intersections || []).map(it => ({
             id: it.id,
             name: it.name || it.id,
@@ -288,6 +355,8 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
           thresholdOpp: ov.thresholdOpp ? clone(ov.thresholdOpp) : rw.thresholdOpp,
           declaredDistances: mergedDeclared,
           endFeatures: mergedFeatures,
+          distanceLogic: clone(ov.distanceLogic || rw.distanceLogic || {}),
+          visualOverrides: clone(ov.visualOverrides || rw.visualOverrides || {}),
           intersections: rw.intersections.map(it => map[it.id] ? { ...it, ...clone(map[it.id]) } : it)
         };
       });
@@ -344,6 +413,120 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
       const thrStation = stationMetersFromPoint(pointForEnd(runway, end, 'threshold'), runway);
       if (String(end) === String(runway.referenceEnd)) return clamp(thrStation, 0, runway.lengthM);
       return clamp(runway.lengthM - thrStation, 0, runway.lengthM);
+    }
+
+    function depIsRef(runway = currentRunway(), dep = state.departureEnd) {
+      return String(dep) === String(runway.referenceEnd);
+    }
+    function anchorToken(type, endOrId) {
+      return `${String(type || '').toUpperCase()}:${String(endOrId || '').toUpperCase()}`;
+    }
+    function parseAnchorToken(token) {
+      const raw = String(token || '').trim();
+      if (!raw) return null;
+      const parts = raw.includes(':') ? raw.split(':') : raw.split('_');
+      const type = String(parts[0] || '').toUpperCase();
+      const id = parts.slice(1).join(':').toUpperCase();
+      if (!type || !id) return null;
+      return { type, id };
+    }
+    function anchorLabel(token) {
+      const parsed = parseAnchorToken(token);
+      if (!parsed) return String(token || '');
+      if (parsed.type === 'PAV') return `PAV ${parsed.id}`;
+      if (parsed.type === 'THR') return `THR ${parsed.id}`;
+      if (parsed.type === 'OP') return `AVOP ${parsed.id}`;
+      if (parsed.type === 'INT') return parsed.id;
+      return `${parsed.type} ${parsed.id}`;
+    }
+    function anchorMeters(runway = currentRunway(), token = '', dep = state.departureEnd) {
+      const parsed = parseAnchorToken(token);
+      if (!parsed) return null;
+      const ref = String(runway.referenceEnd).toUpperCase();
+      const opp = String(currentOppositeEnd(runway)).toUpperCase();
+      const id = parsed.id;
+      if (parsed.type === 'PAV') {
+        return id === ref ? 0 : id === opp ? runway.lengthM : null;
+      }
+      if (parsed.type === 'THR') {
+        if (id === ref) return stationMetersFromPoint(runway.thresholdRef, runway);
+        if (id === opp) return stationMetersFromPoint(runway.thresholdOpp, runway);
+        return null;
+      }
+      if (parsed.type === 'OP') {
+        const info = operationalAnchorInfo(runway, id);
+        return info ? info.metersFromRef : null;
+      }
+      if (parsed.type === 'INT') {
+        const it = (runway.intersections || []).find(x => String(x.id).toUpperCase() === id);
+        return it ? Number(it.metersFromRef) : null;
+      }
+      return null;
+    }
+    function anchorPoint(runway = currentRunway(), token = '', dep = state.departureEnd) {
+      const parsed = parseAnchorToken(token);
+      if (!parsed) return null;
+      const ref = String(runway.referenceEnd).toUpperCase();
+      const opp = String(currentOppositeEnd(runway)).toUpperCase();
+      const id = parsed.id;
+      if (parsed.type === 'PAV') {
+        if (id === ref) return clone(runway.pavementRef || runway.thresholdRef);
+        if (id === opp) return clone(runway.pavementOpp || runway.thresholdOpp);
+      }
+      if (parsed.type === 'THR') {
+        if (id === ref) return clone(runway.thresholdRef);
+        if (id === opp) return clone(runway.thresholdOpp);
+      }
+      if (parsed.type === 'OP') {
+        const m = anchorMeters(runway, token, dep);
+        return Number.isFinite(m) ? pointAtMetersFromRef(m, runway) : null;
+      }
+      if (parsed.type === 'INT') {
+        const it = (runway.intersections || []).find(x => String(x.id).toUpperCase() === id);
+        if (!it) return null;
+        return pointAtMetersFromRef(Number(it.metersFromRef), runway);
+      }
+      return null;
+    }
+    function orientedDistanceMeters(fromMeters, toMeters, runway = currentRunway(), dep = state.departureEnd) {
+      return depIsRef(runway, dep) ? (toMeters - fromMeters) : (fromMeters - toMeters);
+    }
+    function stationAtOffsetFromStart(startMeters, offsetMeters, runway = currentRunway(), dep = state.departureEnd) {
+      return depIsRef(runway, dep) ? (startMeters + offsetMeters) : (startMeters - offsetMeters);
+    }
+    function defaultDistanceLogic(runway = currentRunway(), dep = state.departureEnd) {
+      const profile = metricProfile(runway, dep);
+      const anchorForKind = (kind) => {
+        const ref = String(runway.referenceEnd).toUpperCase();
+        const opp = String(currentOppositeEnd(runway)).toUpperCase();
+        if (kind === 'pavementRef') return anchorToken('PAV', ref);
+        if (kind === 'pavementOpp') return anchorToken('PAV', opp);
+        if (kind === 'thresholdRef') return anchorToken('THR', ref);
+        if (kind === 'thresholdOpp') return anchorToken('THR', opp);
+        if (kind === 'operationalRef') return anchorToken('OP', ref);
+        if (kind === 'operationalOpp') return anchorToken('OP', opp);
+        return anchorToken('PAV', String(dep).toUpperCase());
+      };
+      return {
+        tora: { start: anchorForKind(profile.startKind), end: anchorForKind(profile.toraEndKind) },
+        toda: { start: anchorForKind(profile.startKind), end: anchorForKind(profile.todaEndKind) },
+        asda: { start: anchorForKind(profile.startKind), end: anchorForKind(profile.asdaEndKind) },
+        lda: { start: anchorForKind(profile.ldaStartKind), end: anchorForKind(profile.ldaEndKind) }
+      };
+    }
+    function distanceLogicFor(runway = currentRunway(), dep = state.departureEnd) {
+      const defaults = defaultDistanceLogic(runway, dep);
+      const custom = clone(runway.distanceLogic?.[dep] || {});
+      const mergeMetric = (name) => ({ ...(defaults[name] || {}), ...(custom[name] || {}) });
+      return {
+        tora: mergeMetric('tora'),
+        toda: mergeMetric('toda'),
+        asda: mergeMetric('asda'),
+        lda: mergeMetric('lda')
+      };
+    }
+    function visualOverrideFor(runway = currentRunway(), dep = state.departureEnd) {
+      return clone(runway.visualOverrides?.[dep] || {});
     }
 
     function activeGeometryRecord(baseId = state.currentBaseId, runwayId = state.currentRunwayId || currentRunway(getBasePack(baseId)).id) {
@@ -494,18 +677,24 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
       return isSbmiRunway(runway) && String(dep) === '27';
     }
     function specialAnalysisRows(base, runway, dep) {
-      if (String(base?.code || '') === 'SBMI' && String(runway?.id || '') === 'RWY_09_27' && String(dep) === '09') {
-        return [{
-          id: 'THR09',
-          name: '09',
-          metersFromRef: stationMetersFromPoint(runway.thresholdOpp, runway),
-          labelPoint: clone(runway.thresholdOpp),
-          kind: 'threshold'
-        }];
-      }
-      return [];
+      const override = visualOverrideFor(runway, dep);
+      return (override.tableAnchors || []).map((token, idx) => ({
+        id: `ANCHOR_${idx}_${String(token).replace(/[^A-Z0-9]+/ig, '_')}`,
+        name: anchorLabel(token),
+        metersFromRef: anchorMeters(runway, token, dep),
+        labelPoint: anchorPoint(runway, token, dep),
+        kind: 'anchor',
+        anchorToken: token
+      })).filter(r => Number.isFinite(r.metersFromRef));
     }
     function markerColorFor(runway, dep, kind, endOrId) {
+      const override = visualOverrideFor(runway, dep);
+      const token = kind === 'intersection'
+        ? anchorToken('INT', endOrId)
+        : kind === 'pavement'
+          ? anchorToken('PAV', endOrId)
+          : anchorToken('THR', endOrId);
+      if ((override.redAnchors || []).map(String).includes(token)) return '#ef4444';
       if (isSbmiRestricted27(runway, dep)) {
         if ((kind === 'pavement' || kind === 'threshold') && String(endOrId) === '27') return '#ef4444';
         if (kind === 'intersection' && String(endOrId) === 'B') return '#ef4444';
@@ -1230,6 +1419,18 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
     function drawEndpointLabels(runway) {
       const dep = state.departureEnd;
       if (!dep) return;
+      const override = visualOverrideFor(runway, dep);
+      const explicit = Array.isArray(override.showLabels) ? override.showLabels : null;
+      if (explicit && explicit.length) {
+        explicit.forEach(token => {
+          const pt = anchorPoint(runway, token, dep);
+          const parsed = parseAnchorToken(token);
+          if (!pt || !parsed) return;
+          const color = parsed.type === 'PAV' ? markerColorFor(runway, dep, 'pavement', parsed.id) : parsed.type === 'THR' ? markerColorFor(runway, dep, 'threshold', parsed.id) : parsed.type === 'INT' ? markerColorFor(runway, dep, 'intersection', parsed.id) : '#a855f7';
+          drawCalloutLabel([anchorLabel(token)], toScreen(pt), activeTakeoffLabelCandidates(runway, pt, dep), color, runway);
+        });
+        return;
+      }
       const depPav = pointForEnd(runway, dep, 'pavement');
       const depThr = pointForEnd(runway, dep, 'threshold');
       const depSepM = Math.abs(stationMetersFromPoint(depThr, runway) - stationMetersFromPoint(depPav, runway));
@@ -1241,10 +1442,14 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
     function drawOperationalStartLabel(runway) {
       const dep = state.departureEnd;
       if (!dep) return;
+      const override = visualOverrideFor(runway, dep);
+      if (Array.isArray(override.showLabels) && override.showLabels.some(t => String(t).toUpperCase() === anchorToken('OP', dep))) return;
       const startM = Number(selectedEndFeatures(runway, dep)?.operationalStartM || 0);
       if (!(startM > 0)) return;
-      const pt = pointAtMetersFromRef(departureMeta(runway, dep).startStationMetersFromRef, runway);
-      drawCalloutLabel([`AVOP ${dep}`], toScreen(pt), activeTakeoffLabelCandidates(runway, pt, dep), '#a855f7', runway);
+      const token = anchorToken('OP', dep);
+      const pt = anchorPoint(runway, token, dep);
+      if (!pt) return;
+      drawCalloutLabel([anchorLabel(token)], toScreen(pt), activeTakeoffLabelCandidates(runway, pt, dep), '#a855f7', runway);
     }
     function drawReferenceAxis(runway) {
       const g = runwayGeometry(runway);
@@ -1375,12 +1580,14 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
       labelBoxes.push(rendered);
       return rendered;
     }
-    function drawRequiredArrow(runway, dep, requiredMeters, availableMeters, color, label) {
+    function drawRequiredArrow(runway, dep, requiredMeters, availableMeters, color, label, startMetersOverride = null, endMetersOverride = null) {
       const g = runwayGeometry(runway);
       const usableAvailable = Number.isFinite(availableMeters) ? availableMeters : runway.lengthM;
       const clampedReq = clamp(requiredMeters, 0, usableAvailable);
-      const endMRef = gateMetersFromRef(usableAvailable, runway, dep);
-      const startMRef = gateMetersFromRef(Math.max(0, usableAvailable - clampedReq), runway, dep);
+      const startBase = Number.isFinite(startMetersOverride) ? startMetersOverride : metersForKind(runway, depIsRef(runway, dep) ? 'pavementRef' : 'pavementOpp', dep);
+      const endBase = Number.isFinite(endMetersOverride) ? endMetersOverride : gateMetersFromRef(usableAvailable, runway, dep);
+      const startMRef = stationAtOffsetFromStart(startBase, Math.max(0, usableAvailable - clampedReq), runway, dep);
+      const endMRef = Number.isFinite(endMetersOverride) ? endBase : gateMetersFromRef(usableAvailable, runway, dep);
       const startP = pointAtMetersFromRef(startMRef, runway);
       const endP = pointAtMetersFromRef(endMRef, runway);
       const s = toScreen(startP), e = toScreen(endP);
@@ -1445,8 +1652,8 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
       const fullRow = a.rows.find(r => r.id === 'FULL');
       const gateClamped = clamp(a.gateMetersFromRef, 0, runway.lengthM);
       const gate = pointAtMetersFromRef(gateClamped, runway);
-      const rtoOk = a.rto <= a.declared.asda;
-      drawRequiredArrow(runway, a.dep, a.rto, a.declared.asda, rtoOk ? '#7CFC00' : '#ef4444', 'RTO');
+      const rtoOk = a.rto <= (a.metrics?.asda?.fullLength ?? a.declared.asda);
+      drawRequiredArrow(runway, a.dep, a.rto, a.metrics?.asda?.fullLength ?? a.declared.asda, rtoOk ? '#7CFC00' : '#ef4444', 'RTO', a.metrics?.asda?.startMeters, a.metrics?.asda?.endMeters);
       const half = runway.widthPx * 1.12;
       const gp1 = { x: gate.x + g.px * half, y: gate.y + g.py * half };
       const gp2 = { x: gate.x - g.px * half, y: gate.y - g.py * half };
@@ -1460,7 +1667,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v48';
       ctx.lineTo(s2.x, s2.y);
       ctx.stroke();
       ctx.restore();
-      const startPoint = pointForKind(runway, a.meta.startKind || (Number(a.meta.operationalStartM || 0) > 0 ? (a.dep === currentOppositeEnd(runway) ? 'operationalOpp' : 'operationalRef') : (a.dep === currentOppositeEnd(runway) ? 'pavementOpp' : 'pavementRef')), a.dep);
+      const startPoint = a.metrics?.asda?.startPoint || pointForKind(runway, a.meta.startKind || (Number(a.meta.operationalStartM || 0) > 0 ? (a.dep === currentOppositeEnd(runway) ? 'operationalOpp' : 'operationalRef') : (a.dep === currentOppositeEnd(runway) ? 'pavementOpp' : 'pavementRef')), a.dep);
       const depLabelPoint = { x: startPoint.x + (a.dep === currentOppositeEnd(runway) ? g.px * 58 + g.ux * 12 : -g.px * 58 - g.ux * 12), y: startPoint.y + (a.dep === currentOppositeEnd(runway) ? g.py * 58 + g.uy * 12 : -g.py * 58 - g.uy * 12) };
       drawStatusBarAtPoint(runway, a.meta.fullLengthMetersFromRef, a.meta.startLabel || a.meta.startThr, fullRow?.availableAsda ?? a.declared.asda, !!fullRow?.go, a.dep, 0, depLabelPoint);
       const sorted = [...a.rows.filter(r => r.id !== 'FULL')].sort((x, y) => x.distStart - y.distStart);
