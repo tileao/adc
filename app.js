@@ -1595,17 +1595,20 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       ], color, runway);
       ctx.restore();
     }
-    function drawStatusBarAtPoint(runway, metersFromRef, label, valueMeters, ok, dep, shiftIndex = 0, labelPoint = null) {
+    function drawStatusBarAtPoint(runway, metersFromRef, label, valueMeters, ok, dep, shiftIndex = 0, labelPoint = null, style = null) {
       const g = runwayGeometry(runway);
       const axisPoint = pointAtMetersFromRef(metersFromRef, runway);
       const p = toScreen(axisPoint);
-      const half = Math.max(runway.widthPx * state.scale * 0.95, 14);
+      const styleMode = style === 'twy' ? 'twy' : 'default';
+      const halfMultiplier = styleMode === 'twy' ? 0.68 : 0.95;
+      const minHalf = styleMode === 'twy' ? 10 : 14;
+      const half = Math.max(runway.widthPx * state.scale * halfMultiplier, minHalf);
       const p1 = { x: p.x + g.px * state.scale * half, y: p.y + g.py * state.scale * half };
       const p2 = { x: p.x - g.px * state.scale * half, y: p.y - g.py * state.scale * half };
       const color = ok ? '#7CFC00' : '#ef4444';
       ctx.save();
       ctx.strokeStyle = color;
-      ctx.lineWidth = Math.max(4, runway.widthPx * state.scale * 0.18);
+      ctx.lineWidth = styleMode === 'twy' ? Math.max(2, runway.widthPx * state.scale * 0.10) : Math.max(4, runway.widthPx * state.scale * 0.18);
       ctx.lineCap = 'round';
       ctx.beginPath();
       ctx.moveTo(p1.x, p1.y);
@@ -1707,7 +1710,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       const sorted = [...a.rows.filter(r => r.id !== 'FULL')].sort((x, y) => x.distStart - y.distStart);
       sorted.forEach((row, idx) => {
         const baseIntersection = runway.intersections.find(it => it.id === row.id);
-        drawStatusBarAtPoint(runway, row.metersFromRef, displayTaxiLabel(row.name || row.id), row.availableAsda, row.go, a.dep, idx + 1, row.labelPoint || baseIntersection?.labelPoint || null);
+        drawStatusBarAtPoint(runway, row.metersFromRef, displayTaxiLabel(row.name || row.id), row.availableAsda, row.go, a.dep, idx + 1, row.labelPoint || baseIntersection?.labelPoint || null, 'twy');
       });
     }
     function drawIntersection(runway, it) {
