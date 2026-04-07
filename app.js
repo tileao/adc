@@ -1381,20 +1381,9 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       });
     }
     function drawThresholdMarkers(runway) {
-      const dep = state.departureEnd;
-      const pts = [
-        { p: toScreen(runway.thresholdRef), end: String(runway.referenceEnd) },
-        { p: toScreen(runway.thresholdOpp), end: String(currentOppositeEnd(runway)) }
-      ];
-      pts.forEach(({ p, end }) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 4.8, 0, Math.PI * 2);
-        ctx.fillStyle = markerColorFor(runway, dep, 'threshold', end);
-        ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = 'white';
-        ctx.stroke();
-      });
+      // PAV/THR não ficam visíveis na carta por padrão.
+      // A seleção manual continua sendo mostrada via drawSelectedGuide().
+      return;
     }
     function endpointLabelCandidates(runway, point, end, kind) {
       const g = runwayGeometry(runway);
@@ -1426,30 +1415,21 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
           const pt = anchorPoint(runway, token, dep);
           const parsed = parseAnchorToken(token);
           if (!pt || !parsed) return;
-          const color = parsed.type === 'PAV' ? markerColorFor(runway, dep, 'pavement', parsed.id) : parsed.type === 'THR' ? markerColorFor(runway, dep, 'threshold', parsed.id) : parsed.type === 'INT' ? markerColorFor(runway, dep, 'intersection', parsed.id) : '#a855f7';
+          if (parsed.type === 'PAV' || parsed.type === 'THR') return;
+          const color = parsed.type === 'INT' ? markerColorFor(runway, dep, 'intersection', parsed.id) : '#a855f7';
           drawCalloutLabel([anchorLabel(token)], toScreen(pt), activeTakeoffLabelCandidates(runway, pt, dep), color, runway);
         });
-        return;
-      }
-      const depPav = pointForEnd(runway, dep, 'pavement');
-      const depThr = pointForEnd(runway, dep, 'threshold');
-      const depSepM = Math.abs(stationMetersFromPoint(depThr, runway) - stationMetersFromPoint(depPav, runway));
-      if (depSepM >= 3) {
-        drawCalloutLabel([`PAV ${dep}`], toScreen(depPav), activeTakeoffLabelCandidates(runway, depPav, dep), markerColorFor(runway, dep, 'pavement', dep), runway);
-        drawCalloutLabel([`THR ${dep}`], toScreen(depThr), activeTakeoffLabelCandidates(runway, depThr, dep), markerColorFor(runway, dep, 'threshold', dep), runway);
       }
     }
     function drawOperationalStartLabel(runway) {
       const dep = state.departureEnd;
       if (!dep) return;
-      const override = visualOverrideFor(runway, dep);
-      if (Array.isArray(override.showLabels) && override.showLabels.some(t => String(t).toUpperCase() === anchorToken('OP', dep))) return;
       const startM = Number(selectedEndFeatures(runway, dep)?.operationalStartM || 0);
       if (!(startM > 0)) return;
       const token = anchorToken('OP', dep);
       const pt = anchorPoint(runway, token, dep);
       if (!pt) return;
-      drawCalloutLabel([anchorLabel(token)], toScreen(pt), activeTakeoffLabelCandidates(runway, pt, dep), '#a855f7', runway);
+      drawCalloutLabel([anchorLabel(token)], toScreen(pt), activeTakeoffLabelCandidates(runway, pt, dep), '#ef4444', runway);
     }
     function drawReferenceAxis(runway) {
       const g = runwayGeometry(runway);
@@ -1646,6 +1626,49 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       ];
       drawCalloutLabel([label, `${Math.round(valueMeters)} m`], p, candidates, color, runway);
     }
+    function displayTaxiLabel(label) {
+      const raw = String(label || '').trim();
+      return raw.replace(/^TWY\s+/i, '') || raw;
+    }
+    function drawOperationalRestriction(runway, dep) {
+      if (!dep) return;
+      const startM = Number(selectedEndFeatures(runway, dep)?.operationalStartM || 0);
+      if (!(startM > 0)) return;
+      const startToken = anchorToken('PAV', dep);
+      const opToken = anchorToken('OP', dep);
+      const startMeters = anchorMeters(runway, startToken, dep);
+      const endMeters = anchorMeters(runway, opToken, dep);
+      if (startMeters == null || endMeters == null) return;
+      const aM = Math.min(startMeters, endMeters);
+      const bM = Math.max(startMeters, endMeters);
+      const p1 = pointAtMetersFromRef(aM, runway);
+      const p2 = pointAtMetersFromRef(bM, runway);
+      const s1 = toScreen(p1), s2 = toScreen(p2);
+      ctx.save();
+      ctx.setLineDash([10, 8]);
+      ctx.strokeStyle = 'rgba(239,68,68,0.95)';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(s1.x, s1.y);
+      ctx.lineTo(s2.x, s2.y);
+      ctx.stroke();
+      ctx.restore();
+      const g = runwayGeometry(runway);
+      const opPoint = pointAtMetersFromRef(endMeters, runway);
+      const half = runway.widthPx * 1.12;
+      const gp1 = { x: opPoint.x + g.px * half, y: opPoint.y + g.py * half };
+      const gp2 = { x: opPoint.x - g.px * half, y: opPoint.y - g.py * half };
+      const ss1 = toScreen(gp1), ss2 = toScreen(gp2);
+      ctx.save();
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 5;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(ss1.x, ss1.y);
+      ctx.lineTo(ss2.x, ss2.y);
+      ctx.stroke();
+      ctx.restore();
+    }
     function drawRunwayOverlay(runway, a) {
       if (!a) return;
       const g = runwayGeometry(runway);
@@ -1673,7 +1696,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       const sorted = [...a.rows.filter(r => r.id !== 'FULL')].sort((x, y) => x.distStart - y.distStart);
       sorted.forEach((row, idx) => {
         const baseIntersection = runway.intersections.find(it => it.id === row.id);
-        drawStatusBarAtPoint(runway, row.metersFromRef, row.name || row.id, row.availableAsda, row.go, a.dep, idx + 1, row.labelPoint || baseIntersection?.labelPoint || null);
+        drawStatusBarAtPoint(runway, row.metersFromRef, displayTaxiLabel(row.name || row.id), row.availableAsda, row.go, a.dep, idx + 1, row.labelPoint || baseIntersection?.labelPoint || null);
       });
     }
     function drawIntersection(runway, it) {
