@@ -1,13 +1,13 @@
 {
   "id": "SBMI",
   "code": "SBMI",
-  "name": "Maricá / Maricá",
+  "name": "Maric\u00e1 / Maric\u00e1",
   "city": "RJ - Brasil",
   "adcTitle": "SBMI ADC / AVOP 2026",
   "engineId": "adc_sbmi_v1",
-  "stability": "draft",
-  "locked": false,
-  "schemaVersion": 5,
+  "stability": "stable",
+  "locked": true,
+  "schemaVersion": 6,
   "defaultChartId": "ADC_MAIN",
   "defaultRunwayId": "RWY_09_27",
   "charts": [
@@ -36,20 +36,20 @@
       "widthM": 30,
       "widthPx": 26,
       "pavementRef": {
-        "x": 2349.45,
-        "y": 3421.71
+        "x": 2427.49,
+        "y": 3617.34
       },
       "pavementOpp": {
-        "x": 1577.52,
-        "y": 1539.25
+        "x": 1335.21,
+        "y": 943.73
       },
       "thresholdRef": {
-        "x": 2297.56,
-        "y": 3295.15
+        "x": 2351.64,
+        "y": 3431.66
       },
       "thresholdOpp": {
-        "x": 1746.18,
-        "y": 1950.54
+        "x": 1575.46,
+        "y": 1530.48
       },
       "declaredDistances": {
         "27": {
@@ -69,7 +69,7 @@
         {
           "id": "A",
           "name": "TWY A",
-          "metersFromRef": 330,
+          "metersFromRef": 375,
           "labelPoint": {
             "x": 1960,
             "y": 2780
@@ -78,16 +78,16 @@
         {
           "id": "B",
           "name": "TWY B",
-          "metersFromRef": 460,
+          "metersFromRef": 0,
           "labelPoint": {
-            "x": 1905,
-            "y": 2555
+            "x": 2310.06,
+            "y": 3704.24
           }
         },
         {
           "id": "C",
           "name": "TWY C",
-          "metersFromRef": 610,
+          "metersFromRef": 621,
           "labelPoint": {
             "x": 1845,
             "y": 2315
