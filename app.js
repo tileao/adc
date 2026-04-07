@@ -699,7 +699,9 @@ const GEOM_KEY = 'aw139_adc_geometry_v40';
       const select = document.getElementById('anchorSelect');
       if (!select) return;
       const keys = anchorKeys();
-      select.innerHTML = keys.map(k => `<option value="${k.key}">${k.label}</option>`).join('');
+      const prev = select.value || '';
+      select.innerHTML = ['<option value="">— sem seleção —</option>', ...keys.map(k => `<option value="${k.key}">${k.label}</option>`)].join('');
+      select.value = keys.some(k => k.key === prev) ? prev : '';
     }
     function selectedAnchorKey() { return document.getElementById('anchorSelect')?.value || ''; }
     function selectedAnchorLabel() { const key = selectedAnchorKey(); return anchorKeys().find(k => k.key === key)?.label || key; }
@@ -1079,17 +1081,13 @@ const GEOM_KEY = 'aw139_adc_geometry_v40';
     function drawEndpointLabels(runway) {
       const dep = state.departureEnd;
       if (!dep) return;
-      const opp = (runway.ends || []).find(e => String(e) !== String(dep)) || currentOppositeEnd(runway);
       const depPav = pointForEnd(runway, dep, 'pavement');
       const depThr = pointForEnd(runway, dep, 'threshold');
       const depSepM = Math.abs(stationMetersFromPoint(depThr, runway) - stationMetersFromPoint(depPav, runway));
       if (depSepM >= 3) {
         drawCalloutLabel([`PAV ${dep}`], toScreen(depPav), activeTakeoffLabelCandidates(runway, depPav, dep), '#f59e0b', runway);
+        drawCalloutLabel([`THR ${dep}`], toScreen(depThr), activeTakeoffLabelCandidates(runway, depThr, dep), '#22d3ee', runway);
       }
-      const asda = selectedDeclared(runway, dep).asda || runway.lengthM;
-      const oppStation = gateMetersFromRef(asda, runway, dep);
-      const oppPoint = pointAtMetersFromRef(clamp(oppStation, 0, runway.lengthM), runway);
-      drawCalloutLabel([String(opp)], toScreen(oppPoint), activeTakeoffLabelCandidates(runway, oppPoint, opp), '#22d3ee', runway);
     }
     function drawReferenceAxis(runway) {
       const g = runwayGeometry(runway);
