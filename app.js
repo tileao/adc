@@ -616,6 +616,8 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
     function metricProfile(runway = currentRunway(), dep = state.departureEnd) {
       const ref = runway.referenceEnd;
       const depIsRef = String(dep) === String(ref);
+      const baseCode = String(currentBase()?.code || '').toUpperCase();
+      const thresholdOperationalBases = new Set(['SBVT','SBME','SBFS','SBRJ','SBNF']);
       const baseProfile = {
         startKind: depIsRef ? 'pavementRef' : 'pavementOpp',
         asdaEndKind: depIsRef ? 'pavementOpp' : 'pavementRef',
@@ -624,7 +626,10 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
         ldaStartKind: depIsRef ? 'thresholdRef' : 'thresholdOpp',
         ldaEndKind: depIsRef ? 'thresholdOpp' : 'thresholdRef'
       };
-      if (String(currentBase()?.code || '') === 'SBMI' && String(runway.id) === 'RWY_09_27') {
+      if (thresholdOperationalBases.has(baseCode)) {
+        baseProfile.startKind = depIsRef ? 'thresholdRef' : 'thresholdOpp';
+      }
+      if (baseCode === 'SBMI' && String(runway.id) === 'RWY_09_27') {
         if (String(dep) === '27') {
           baseProfile.startKind = 'operationalRef';
           baseProfile.asdaEndKind = 'pavementOpp';
