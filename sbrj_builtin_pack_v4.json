@@ -35,13 +35,21 @@
       "lengthM": 1260,
       "widthM": 30,
       "widthPx": 24,
+      "pavementRef": {
+        "x": 366.7,
+        "y": 276.2
+      },
+      "pavementOpp": {
+        "x": 407.1,
+        "y": 1136.6
+      },
       "thresholdRef": {
-        "x": 410,
-        "y": 305
+        "x": 366.7,
+        "y": 276.2
       },
       "thresholdOpp": {
-        "x": 450,
-        "y": 1090
+        "x": 407.1,
+        "y": 1136.6
       },
       "declaredDistances": {
         "02L": {
@@ -61,68 +69,51 @@
         {
           "id": "A",
           "name": "TWY A",
-          "metersFromRef": 43,
+          "metersFromRef": 45,
           "labelPoint": {
-            "x": 391,
-            "y": 333
+            "x": 355,
+            "y": 328
           }
         },
         {
-          "id": "H",
-          "name": "TWY H",
-          "metersFromRef": 379,
+          "id": "B",
+          "name": "TWY B",
+          "metersFromRef": 403,
           "labelPoint": {
-            "x": 399,
-            "y": 542
+            "x": 365,
+            "y": 543
           }
         },
         {
-          "id": "G",
-          "name": "TWY G",
-          "metersFromRef": 931,
+          "id": "C",
+          "name": "TWY C",
+          "metersFromRef": 991,
           "labelPoint": {
-            "x": 421,
-            "y": 886
+            "x": 398,
+            "y": 955
           }
         },
         {
-          "id": "F",
-          "name": "TWY F",
-          "metersFromRef": 1106,
+          "id": "D",
+          "name": "TWY D",
+          "metersFromRef": 1162,
           "labelPoint": {
-            "x": 430,
-            "y": 995
-          }
-        },
-        {
-          "id": "E",
-          "name": "TWY E",
-          "metersFromRef": 1190,
-          "labelPoint": {
-            "x": 431,
-            "y": 1047
+            "x": 392,
+            "y": 1063
           }
         }
       ],
       "endFeatures": {
         "02L": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         },
         "20R": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         }
-      },
-      "pavementRef": {
-        "x": 410,
-        "y": 305
-      },
-      "pavementOpp": {
-        "x": 450,
-        "y": 1090
       }
     },
     {
@@ -136,14 +127,22 @@
       ],
       "lengthM": 1323,
       "widthM": 42,
-      "widthPx": 35,
+      "widthPx": 30,
+      "pavementRef": {
+        "x": 411.0,
+        "y": 271.0
+      },
+      "pavementOpp": {
+        "x": 452.2,
+        "y": 1130.0
+      },
       "thresholdRef": {
-        "x": 364,
-        "y": 305
+        "x": 411.0,
+        "y": 271.0
       },
       "thresholdOpp": {
-        "x": 399,
-        "y": 1084
+        "x": 452.2,
+        "y": 1130.0
       },
       "declaredDistances": {
         "02R": {
@@ -163,59 +162,60 @@
         {
           "id": "A",
           "name": "TWY A",
-          "metersFromRef": 45,
+          "metersFromRef": 43,
           "labelPoint": {
-            "x": 312,
-            "y": 334
+            "x": 398,
+            "y": 329
           }
         },
         {
-          "id": "B",
-          "name": "TWY B",
-          "metersFromRef": 403,
+          "id": "H",
+          "name": "TWY H",
+          "metersFromRef": 379,
           "labelPoint": {
-            "x": 363,
+            "x": 410,
             "y": 543
           }
         },
         {
-          "id": "C",
-          "name": "TWY C",
-          "metersFromRef": 991,
+          "id": "G",
+          "name": "TWY G",
+          "metersFromRef": 931,
           "labelPoint": {
-            "x": 374,
-            "y": 889
+            "x": 432,
+            "y": 957
           }
         },
         {
-          "id": "D",
-          "name": "TWY D",
-          "metersFromRef": 1162,
+          "id": "F",
+          "name": "TWY F",
+          "metersFromRef": 1106,
           "labelPoint": {
-            "x": 394,
-            "y": 989
+            "x": 439,
+            "y": 1061
+          }
+        },
+        {
+          "id": "E",
+          "name": "TWY E",
+          "metersFromRef": 1190,
+          "labelPoint": {
+            "x": 447,
+            "y": 1112
           }
         }
       ],
       "endFeatures": {
         "02R": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         },
         "20L": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 0.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         }
-      },
-      "pavementRef": {
-        "x": 364,
-        "y": 305
-      },
-      "pavementOpp": {
-        "x": 399,
-        "y": 1084
       }
     }
   ]
