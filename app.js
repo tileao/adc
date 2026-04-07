@@ -160,8 +160,10 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       };
       sbmi.visualOverrides = {
         '27': {
-          showLabels: ['OP:27', 'THR:27', 'PAV:27'],
+          showLabels: [],
+          hideOperationalLabel: true,
           redAnchors: ['THR:27', 'PAV:27', 'INT:B'],
+          restrictedSegment: { start: 'PAV:27', end: 'OP:27' },
           tableAnchors: []
         },
         '09': {
@@ -1365,20 +1367,9 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
     }
 
     function drawPavementMarkers(runway) {
-      const dep = state.departureEnd;
-      const pts = [
-        { p: toScreen(runway.pavementRef || runway.thresholdRef), end: String(runway.referenceEnd) },
-        { p: toScreen(runway.pavementOpp || runway.thresholdOpp), end: String(currentOppositeEnd(runway)) }
-      ];
-      pts.forEach(({ p, end }) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 5.2, 0, Math.PI * 2);
-        ctx.fillStyle = markerColorFor(runway, dep, 'pavement', end);
-        ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = 'white';
-        ctx.stroke();
-      });
+      // PAV também não fica visível na carta por padrão.
+      // A seleção manual continua sendo mostrada via drawSelectedGuide().
+      return;
     }
     function drawThresholdMarkers(runway) {
       // PAV/THR não ficam visíveis na carta por padrão.
@@ -1424,6 +1415,8 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
     function drawOperationalStartLabel(runway) {
       const dep = state.departureEnd;
       if (!dep) return;
+      const override = visualOverrideFor(runway, dep);
+      if (override.hideOperationalLabel) return;
       const startM = Number(selectedEndFeatures(runway, dep)?.operationalStartM || 0);
       if (!(startM > 0)) return;
       const token = anchorToken('OP', dep);
@@ -1632,21 +1625,27 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
     }
     function drawOperationalRestriction(runway, dep) {
       if (!dep) return;
+      const override = visualOverrideFor(runway, dep);
       const startM = Number(selectedEndFeatures(runway, dep)?.operationalStartM || 0);
-      if (!(startM > 0)) return;
-      const startToken = anchorToken('PAV', dep);
-      const opToken = anchorToken('OP', dep);
+      const defaultStartToken = anchorToken('PAV', dep);
+      const defaultOpToken = anchorToken('OP', dep);
+      const startToken = override?.restrictedSegment?.start || defaultStartToken;
+      const endToken = override?.restrictedSegment?.end || defaultOpToken;
       const startMeters = anchorMeters(runway, startToken, dep);
-      const endMeters = anchorMeters(runway, opToken, dep);
-      if (startMeters == null || endMeters == null) return;
+      const endMeters = anchorMeters(runway, endToken, dep);
+      if (startMeters == null || endMeters == null) {
+        if (!(startM > 0)) return;
+        return;
+      }
       const aM = Math.min(startMeters, endMeters);
       const bM = Math.max(startMeters, endMeters);
+      if (!(bM > aM)) return;
       const p1 = pointAtMetersFromRef(aM, runway);
       const p2 = pointAtMetersFromRef(bM, runway);
       const s1 = toScreen(p1), s2 = toScreen(p2);
       ctx.save();
       ctx.setLineDash([10, 8]);
-      ctx.strokeStyle = 'rgba(239,68,68,0.95)';
+      ctx.strokeStyle = override?.restrictedDashColor || 'rgba(239,68,68,0.95)';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(s1.x, s1.y);
@@ -1660,7 +1659,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       const gp2 = { x: opPoint.x - g.px * half, y: opPoint.y - g.py * half };
       const ss1 = toScreen(gp1), ss2 = toScreen(gp2);
       ctx.save();
-      ctx.strokeStyle = '#ef4444';
+      ctx.strokeStyle = override?.restrictedBarColor || '#ef4444';
       ctx.lineWidth = 5;
       ctx.lineCap = 'round';
       ctx.beginPath();
@@ -1700,17 +1699,26 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       });
     }
     function drawIntersection(runway, it) {
+      const row = state.analysis?.rows?.find(r => String(r.id) === String(it.id));
+      if (!row) return;
       const axisPoint = pointAtMetersFromRef(it.metersFromRef, runway);
-      const a = toScreen(axisPoint);
+      const p = toScreen(axisPoint);
+      const g = runwayGeometry(runway);
+      const half = runway.widthPx * state.scale * 0.52;
+      const p1 = { x: p.x + g.px * state.scale * half, y: p.y + g.py * state.scale * half };
+      const p2 = { x: p.x - g.px * state.scale * half, y: p.y - g.py * state.scale * half };
       const selected = selectedAnchorKey();
       const selectedAxis = selected === `axis_${it.id}`;
+      const color = row.go ? '#7CFC00' : '#ef4444';
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = selectedAxis ? 6 : 4.5;
+      ctx.lineCap = 'round';
       ctx.beginPath();
-      ctx.arc(a.x, a.y, selectedAxis ? 8 : 6.5, 0, Math.PI * 2);
-      ctx.fillStyle = markerColorFor(runway, state.departureEnd, 'intersection', it.id);
-      ctx.fill();
-      ctx.lineWidth = selectedAxis ? 3.5 : 2.5;
-      ctx.strokeStyle = 'white';
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
       ctx.stroke();
+      ctx.restore();
     }
     function drawSelectedGuide(runway) {
       const key = selectedAnchorKey();
@@ -1763,6 +1771,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       ctx.drawImage(chartImg, state.offsetX, state.offsetY, chart.size.width * state.scale, chart.size.height * state.scale);
       if (state.vizPage === 'P2') return;
       drawReferenceAxis(runway);
+      drawOperationalRestriction(runway, state.departureEnd);
       drawRunwayOverlay(runway, state.analysis);
       drawPavementMarkers(runway);
       drawThresholdMarkers(runway);
