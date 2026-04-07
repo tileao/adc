@@ -29,19 +29,27 @@
       "chartId": "ADC_MAIN",
       "referenceEnd": "10",
       "ends": [
-        "10",
-        "28"
+        "28",
+        "10"
       ],
       "lengthM": 2550,
       "widthM": 45,
       "widthPx": 29,
+      "pavementRef": {
+        "x": 448.06,
+        "y": 208.19
+      },
+      "pavementOpp": {
+        "x": 652.07,
+        "y": 1153.82
+      },
       "thresholdRef": {
-        "x": 448,
-        "y": 233
+        "x": 454.4,
+        "y": 241.4
       },
       "thresholdOpp": {
-        "x": 651,
-        "y": 1111
+        "x": 643.63,
+        "y": 1120.07
       },
       "declaredDistances": {
         "10": {
@@ -70,7 +78,7 @@
         {
           "id": "B",
           "name": "TWY B",
-          "metersFromRef": 403,
+          "metersFromRef": 421,
           "labelPoint": {
             "x": 457,
             "y": 377
@@ -79,23 +87,15 @@
       ],
       "endFeatures": {
         "10": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 90.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         },
         "28": {
-          "displacedThresholdM": 0.0,
-          "stopwayM": 0.0,
-          "clearwayM": 90.0
+          "displacedThresholdM": 0,
+          "stopwayM": 0,
+          "clearwayM": 0
         }
-      },
-      "pavementRef": {
-        "x": 448,
-        "y": 233
-      },
-      "pavementOpp": {
-        "x": 651,
-        "y": 1111
       }
     }
   ]

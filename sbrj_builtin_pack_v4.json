@@ -36,20 +36,20 @@
       "widthM": 30,
       "widthPx": 24,
       "pavementRef": {
-        "x": 366.7,
-        "y": 276.2
+        "x": 368.82,
+        "y": 314.92
       },
       "pavementOpp": {
-        "x": 407.1,
-        "y": 1136.6
+        "x": 402.57,
+        "y": 1056.19
       },
       "thresholdRef": {
-        "x": 366.7,
-        "y": 276.2
+        "x": 368.82,
+        "y": 314.92
       },
       "thresholdOpp": {
-        "x": 407.1,
-        "y": 1136.6
+        "x": 402.57,
+        "y": 1056.19
       },
       "declaredDistances": {
         "02L": {
@@ -69,7 +69,7 @@
         {
           "id": "A",
           "name": "TWY A",
-          "metersFromRef": 45,
+          "metersFromRef": 0,
           "labelPoint": {
             "x": 355,
             "y": 328
@@ -78,7 +78,7 @@
         {
           "id": "B",
           "name": "TWY B",
-          "metersFromRef": 403,
+          "metersFromRef": 377,
           "labelPoint": {
             "x": 365,
             "y": 543
@@ -87,7 +87,7 @@
         {
           "id": "C",
           "name": "TWY C",
-          "metersFromRef": 991,
+          "metersFromRef": 973,
           "labelPoint": {
             "x": 398,
             "y": 955
@@ -96,7 +96,7 @@
         {
           "id": "D",
           "name": "TWY D",
-          "metersFromRef": 1162,
+          "metersFromRef": 1182,
           "labelPoint": {
             "x": 392,
             "y": 1063
@@ -129,20 +129,20 @@
       "widthM": 42,
       "widthPx": 30,
       "pavementRef": {
-        "x": 411.0,
-        "y": 271.0
+        "x": 413.42,
+        "y": 311.31
       },
       "pavementOpp": {
-        "x": 452.2,
-        "y": 1130.0
+        "x": 449.58,
+        "y": 1090.54
       },
       "thresholdRef": {
-        "x": 411.0,
-        "y": 271.0
+        "x": 413.42,
+        "y": 311.31
       },
       "thresholdOpp": {
-        "x": 452.2,
-        "y": 1130.0
+        "x": 449.58,
+        "y": 1090.54
       },
       "declaredDistances": {
         "02R": {
@@ -162,7 +162,7 @@
         {
           "id": "A",
           "name": "TWY A",
-          "metersFromRef": 43,
+          "metersFromRef": 0,
           "labelPoint": {
             "x": 398,
             "y": 329
@@ -180,7 +180,7 @@
         {
           "id": "G",
           "name": "TWY G",
-          "metersFromRef": 931,
+          "metersFromRef": 972,
           "labelPoint": {
             "x": 432,
             "y": 957
@@ -189,7 +189,7 @@
         {
           "id": "F",
           "name": "TWY F",
-          "metersFromRef": 1106,
+          "metersFromRef": 1176,
           "labelPoint": {
             "x": 439,
             "y": 1061
@@ -198,7 +198,7 @@
         {
           "id": "E",
           "name": "TWY E",
-          "metersFromRef": 1190,
+          "metersFromRef": 1323,
           "labelPoint": {
             "x": 447,
             "y": 1112
