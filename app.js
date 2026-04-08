@@ -218,7 +218,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
         currentRunwayId: state.currentRunwayId,
         departureEnd: state.departureEnd,
         rto: document.getElementById('rtoInput')?.value || '',
-        vizPage: state.vizPage || 'P1',
+        vizPage: 'P1',
         advancedOpen: document.getElementById('advancedToggle')?.checked || false
       };
       localStorage.setItem(STATE_KEY, JSON.stringify(payload));
@@ -326,7 +326,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       scale: 1,
       offsetX: 0,
       offsetY: 0,
-      vizPage: persisted.vizPage === 'P2' ? 'P2' : 'P1',
+      vizPage: 'P1',
       advancedOpen: !!persisted.advancedOpen,
       copiedAnchorPoint: null
     };
@@ -371,22 +371,13 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       return base.charts.find(ch => ch.id === runway.chartId) || base.charts.find(ch => ch.id === base.defaultChartId) || base.charts[0];
     }
     function page2Chart(base = currentBase()) {
-      const cfg = PAGE2_ASSETS[base.id];
-      if (!cfg) return null;
-      return {
-        id: 'ADC_PAGE2',
-        label: cfg.label || 'ADC pág. 2',
-        asset: cfg.asset,
-        assetName: cfg.asset,
-        size: cfg.size || currentChart(base).size
-      };
+      return null;
     }
     function currentDisplayChart(base = currentBase(), runway = currentRunway(base)) {
-      if (state.vizPage === 'P2') return page2Chart(base) || currentChart(base, runway);
       return currentChart(base, runway);
     }
     function hasPage2(base = currentBase()) {
-      return !!page2Chart(base);
+      return false;
     }
     function currentOppositeEnd(runway = currentRunway()) {
       return runway.ends.find(e => e !== runway.referenceEnd) || runway.ends[0];
@@ -732,11 +723,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       const base = currentBase();
       const runway = currentRunway(base);
       const fallback = currentChart(base, runway);
-      if (state.vizPage === 'P2') {
-        state.vizPage = 'P1';
-        renderChartPageControls();
-        chartImg.src = fallback.chartDataUrl || fallback.asset || fallback.assetName || '';
-      }
+      chartImg.src = fallback.chartDataUrl || fallback.asset || fallback.assetName || '';
       document.getElementById('vizSubtitle').textContent = `${base.id} • falha ao carregar a carta solicitada.`;
     };
 
@@ -768,19 +755,12 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
     function fromScreen(x, y) { return { x: (x - state.offsetX) / state.scale, y: (y - state.offsetY) / state.scale }; }
 
     function renderChartPageControls() {
+      state.vizPage = 'P1';
       const toggle = document.getElementById('pageToggle');
-      const btn1 = document.getElementById('page1Btn');
-      const btn2 = document.getElementById('page2Btn');
-      const available = hasPage2(currentBase());
-      if (!available && state.vizPage === 'P2') state.vizPage = 'P1';
-      if (toggle) toggle.hidden = !available;
-      if (btn1) btn1.classList.toggle('active', state.vizPage !== 'P2');
-      if (btn2) btn2.classList.toggle('active', state.vizPage === 'P2');
+      if (toggle) toggle.hidden = true;
     }
     function setVizPage(page) {
-      const next = page === 'P2' && hasPage2(currentBase()) ? 'P2' : 'P1';
-      state.vizPage = next;
-      if (next === 'P2' && state.captureMode) setCaptureMode(false);
+      state.vizPage = 'P1';
       renderChartPageControls();
       loadCurrentChart();
       draw();
@@ -823,8 +803,7 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       const chart = currentDisplayChart(base, runway);
       const src = chartSource(base, runway);
       if (chartImg.src !== src) chartImg.src = src; else if (src) chartImg.src = src + (src.includes('?') ? '&' : '?') + 'v=' + Date.now();
-      const modeText = state.vizPage === 'P2' ? 'consulta da página 2 da ADC' : `overlay ${runway.label} • ${state.departureEnd}`;
-      document.getElementById('vizSubtitle').textContent = `${base.id} • ${chart.label} • ${modeText} • toque na carta para abrir em tela cheia.`;
+      document.getElementById('vizSubtitle').textContent = `${base.id} • ${runway.label} • ${chart.label} • toque na carta para abrir em tela cheia.`;
     }
 
     function analyze() {
@@ -1600,15 +1579,15 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       const axisPoint = pointAtMetersFromRef(metersFromRef, runway);
       const p = toScreen(axisPoint);
       const styleMode = style === 'twy' ? 'twy' : 'default';
-      const halfMultiplier = styleMode === 'twy' ? 0.68 : 0.95;
-      const minHalf = styleMode === 'twy' ? 10 : 14;
+      const halfMultiplier = styleMode === 'twy' ? 0.48 : 0.95;
+      const minHalf = styleMode === 'twy' ? 7 : 14;
       const half = Math.max(runway.widthPx * state.scale * halfMultiplier, minHalf);
       const p1 = { x: p.x + g.px * state.scale * half, y: p.y + g.py * state.scale * half };
       const p2 = { x: p.x - g.px * state.scale * half, y: p.y - g.py * state.scale * half };
       const color = ok ? '#7CFC00' : '#ef4444';
       ctx.save();
       ctx.strokeStyle = color;
-      ctx.lineWidth = styleMode === 'twy' ? Math.max(2, runway.widthPx * state.scale * 0.10) : Math.max(4, runway.widthPx * state.scale * 0.18);
+      ctx.lineWidth = styleMode === 'twy' ? Math.max(1.8, runway.widthPx * state.scale * 0.072) : Math.max(4, runway.widthPx * state.scale * 0.18);
       ctx.lineCap = 'round';
       ctx.beginPath();
       ctx.moveTo(p1.x, p1.y);
@@ -1714,26 +1693,9 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       });
     }
     function drawIntersection(runway, it) {
-      const row = state.analysis?.rows?.find(r => String(r.id) === String(it.id));
-      if (!row) return;
-      const axisPoint = pointAtMetersFromRef(it.metersFromRef, runway);
-      const p = toScreen(axisPoint);
-      const g = runwayGeometry(runway);
-      const half = Math.max(runway.widthPx * state.scale * 0.95, 14);
-      const p1 = { x: p.x + g.px * state.scale * half, y: p.y + g.py * state.scale * half };
-      const p2 = { x: p.x - g.px * state.scale * half, y: p.y - g.py * state.scale * half };
-      const selected = selectedAnchorKey();
-      const selectedAxis = selected === `axis_${it.id}`;
-      const color = row.go ? '#7CFC00' : '#ef4444';
-      ctx.save();
-      ctx.strokeStyle = color;
-      ctx.lineWidth = selectedAxis ? Math.max(10, runway.widthPx * state.scale * 0.42) : Math.max(8, runway.widthPx * state.scale * 0.34);
-      ctx.lineCap = 'round';
-      ctx.beginPath();
-      ctx.moveTo(p1.x, p1.y);
-      ctx.lineTo(p2.x, p2.y);
-      ctx.stroke();
-      ctx.restore();
+      // As barrinhas operacionais das TWY já são desenhadas em drawStatusBarAtPoint().
+      // Evitamos desenhar uma segunda barra aqui para não engrossar visualmente.
+      return;
     }
     function drawSelectedGuide(runway) {
       const key = selectedAnchorKey();
@@ -1784,7 +1746,6 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       ctx.imageSmoothingEnabled = true;
       try { ctx.imageSmoothingQuality = 'high'; } catch (e) {}
       ctx.drawImage(chartImg, state.offsetX, state.offsetY, chart.size.width * state.scale, chart.size.height * state.scale);
-      if (state.vizPage === 'P2') return;
       drawReferenceAxis(runway);
       drawOperationalRestriction(runway, state.departureEnd);
       drawRunwayOverlay(runway, state.analysis);
@@ -1915,8 +1876,10 @@ const GEOM_KEY = 'aw139_adc_geometry_v49';
       if (!document.body.classList.contains('body-fullscreen')) toggleChartFullscreen(true);
     });
     chartCloseBtn.addEventListener('click', e => { e.stopPropagation(); toggleChartFullscreen(false); });
-    document.getElementById('page1Btn').addEventListener('click', e => { e.stopPropagation(); setVizPage('P1'); });
-    document.getElementById('page2Btn').addEventListener('click', e => { e.stopPropagation(); setVizPage('P2'); });
+    const page1Btn = document.getElementById('page1Btn');
+    const page2Btn = document.getElementById('page2Btn');
+    if (page1Btn) page1Btn.addEventListener('click', e => { e.stopPropagation(); setVizPage('P1'); });
+    if (page2Btn) page2Btn.addEventListener('click', e => { e.stopPropagation(); setVizPage('P2'); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleChartFullscreen(false); });
 
     const advancedToggle = document.getElementById('advancedToggle');
